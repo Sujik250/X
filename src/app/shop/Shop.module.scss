@@ -1,0 +1,106 @@
+.ShopHeader{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	& input{
+		width: 70%;
+		height: 35px;
+		border: none;
+		background-color: var(--primary-black);
+		border: 2px solid var(--primary-blue);
+		border-radius: 15px;
+		outline: none;
+		color: var(--text-color);
+		font-size: 17px;
+		padding-left: 10px;
+		padding-right: 40px;
+	}
+
+	& .TWclearBtn{
+		position: absolute;
+		right: 12%;
+		height: 16px;
+
+		& svg{
+			width: 16px;
+			fill: var(--text-color);
+		}
+	}
+}
+
+.AllCategoryProduct{
+
+	 & .Collections{
+		 
+		 & .CollectionsInfo{
+			display: flex;
+			justify-content: space-between;
+			margin: 15px 5% 0;
+
+			& .ShowAll{
+				color: var(--primary-blue);
+				font-size: 14px;
+			}
+		}
+	 }
+}
+
+.PromoCodeBtn{
+
+	& button{
+        position: fixed;
+		bottom: 75px;
+        right: 5px;
+        margin-left: 50%;
+        background-color: var(--primary-blue);
+        padding: 10px;
+		border: none;
+        border-radius: 10px;
+        color: #fff;
+		font-size: 16px;
+	}
+}
+
+.ModalMenuPromoCode{
+	
+	& .InsideMenu{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 3% 5%;
+
+		& .ClueText{
+			text-align: center;
+			font-size: 17px;
+		}
+		
+		& input{
+			width: 80%;
+			height: 35px;
+			border: none;
+			background-color: var(--primary-black);
+			border: 2px solid var(--primary-blue);
+			border-radius: 15px;
+			outline: none;
+			color: var(--text-color);
+			font-size: 17px;
+			margin-top: 3%;
+			padding-left: 10px;
+			padding-right: 40px;
+			text-transform: uppercase;
+		}
+		
+		& .Done{
+			margin-top: 5%;
+			padding: 5px;
+			width: 50%;
+			background-color: var(--primary-blue);
+			border: none;
+			border-radius: 10px;
+			color: #fff;
+			font-size: 16px;
+		}
+	}
+}

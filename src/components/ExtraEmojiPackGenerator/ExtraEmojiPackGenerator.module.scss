@@ -1,0 +1,58 @@
+.ProductBlock{
+	display: flex;
+	padding: 0px 10px 10px;
+	border-top: 1px solid var(--primary-gray);
+	padding-top: 10px;
+		&:first-child{
+			border: none;
+		}
+
+	& img{
+		border-radius: 15px;
+		width: 25%;
+	}
+
+	& .ImportantInfo{
+		display: flex;
+		flex-direction: column;
+		margin-left: 10px;
+		
+		& .ProductName{
+			font-size: 20px;
+			margin-bottom: 10px;
+		}
+
+		& .ProductInclude{
+			font-size: 18px;
+			color: var(--background-color);
+
+			& .ProductIncludeItem{
+				border-right: 1px solid var(--background-color);
+				padding: 3px;
+					&:last-child{
+						border: none;
+					}
+					&[data-active=true]{
+						border: 1px solid var(--primary-accepted-green);
+						border-radius: 5px;
+					}
+			}
+		}
+	}
+}
+
+.DoneBtn{
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+
+	& .Done{
+		background-color: var(--primary-blue);
+		border: none;
+		border-radius: 10px;
+		width: 100%;
+		color: #fff;
+		font-size: 18px;
+		height: 38px;
+	}
+}

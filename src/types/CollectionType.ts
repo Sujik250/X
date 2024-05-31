@@ -1,0 +1,3 @@
+type typeCollectionProps = {
+	searchValue: string;
+}

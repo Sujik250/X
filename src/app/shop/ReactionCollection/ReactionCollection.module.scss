@@ -1,0 +1,53 @@
+.ReactionCollection{
+	display: flex;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	scrollbar-color: transparent transparent;
+	margin: 10px 5%;
+
+	& .ProductBlock{
+		display: flex;
+		flex-direction: column;
+		margin-right: 4%;
+		max-width: 90px;
+			&:last-child{
+				margin-right: 0;
+			}
+
+		& img{
+			width: 90px;
+			border-radius: 15px;
+		}
+
+		& .ProductInfo{
+			display: flex;
+			flex-direction: column;
+			margin-top: 7px;
+
+			& .ProductName{
+				font-size: 17px;
+			}
+
+			& .AddedBlock{
+				margin-top: 5px;
+				text-align: center;
+				border-radius: 5px;
+				padding: 3px;
+				background-color: var(--background-color);
+				width: 60%;
+				color: var(--primary-accepted-green);
+			}
+
+			& .ProductPrice{
+				margin-top: 5px;
+				font-size: 14px;
+				color: var(--primary-blue);
+	
+				&.ProductPriceDiscount{
+					color: var(--primary-gray);
+					text-decoration: line-through;
+				}
+			}
+		}
+	}
+}

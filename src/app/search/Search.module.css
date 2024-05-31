@@ -1,0 +1,37 @@
+.TWsearchBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.TWsearchBar input {
+  width: 70%;
+  height: 35px;
+  border: none;
+  background-color: var(--primary-black);
+  border: 2px solid var(--primary-blue);
+  border-radius: 15px;
+  outline: none;
+  color: var(--text-color);
+  font-size: 17px;
+  padding-left: 10px;
+  padding-right: 40px;
+}
+.TWsearchBar .TWclearBtn {
+  position: absolute;
+  right: 12%;
+  height: 16px;
+}
+.TWsearchBar .TWclearBtn svg {
+  width: 16px;
+  fill: var(--text-color);
+}
+
+.TWpostsSearchResult {
+  margin-top: 20px;
+}

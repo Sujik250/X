@@ -1,0 +1,137 @@
+:root {
+  --text-color: #fff;
+  --background-color: #2b2b2b;
+  --primary-blue: #1DA1F2;
+  --primary-black: #000;
+  --primary-white: #fff;
+  --primary-gray: #657786;
+  --pramary-light_gray: #AAB8C2;
+  --pramary-extra_light_gray: #E1E8ED;
+  --pramary-extra_extra_light_gray: #F5F8FA;
+  --primary-accepted-green: #4ab046;
+}
+
+.white-theme {
+  --text-color: #000;
+  --background-color: #e5e5e5;
+  --primary-black: #fff;
+  --primary-white: #000;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1.25;
+  background-color: var(--primary-black);
+  color: var(--text-color);
+  font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+@media (max-width: 450px) {
+  body {
+    display: block;
+  }
+  body::after {
+    content: "";
+  }
+  main {
+    margin-bottom: 20%;
+  }
+  svg {
+    width: 32px;
+  }
+  .TWredIcon {
+    fill: #fe2b54;
+  }
+  .TWheader {
+    margin: 5px 0px;
+    text-align: center;
+  }
+  .TWheader svg {
+    fill: var(--primary-white);
+    width: 48px;
+  }
+  .TWimportantInfo {
+    height: 70vh;
+    font-size: 30px;
+    font-weight: 600;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    color: var(--primary-blue);
+  }
+  .TWloadingScreen {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 70vh;
+  }
+  .TWloadingScreen svg {
+    width: 256px;
+    fill: var(--primary-white);
+  }
+  mark {
+    background-color: transparent;
+    color: var(--primary-blue);
+  }
+}

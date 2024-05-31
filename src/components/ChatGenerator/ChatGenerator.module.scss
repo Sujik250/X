@@ -1,0 +1,99 @@
+.ChatBlock{
+	padding-top: 10px;
+	margin-bottom: 10px;
+	border-top: 1px solid var(--primary-gray);
+		&:first-child{
+			padding: 0;
+			border-top: none;
+		}
+		&:last-child{
+			margin: 0;
+		}
+		
+	& a{
+		display: flex;
+		justify-content: space-between;
+		
+		& .ChatInfo{
+			display: flex;
+			
+			& img{
+				margin-left: 5%;
+				border-radius: 50%;
+				width: 58px;
+				height: 58px;
+				margin-right: 20px;
+				margin-left: 10px;
+			}
+		
+			& .MainInfo{
+				display: flex;
+				flex-direction: column;
+		
+				& .NameUser{
+					margin-right: 5px;
+					color: var(--primary-blue);
+					max-width: 45vw;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+				}
+		
+				& .LastMessage{
+					max-width: 50vw;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					margin-top: 5px;
+				}
+			}
+		}
+
+
+		& .OtherInfo{
+			display: flex;
+			flex-direction: column;
+			align-items: end;
+			margin-right: 5%;
+
+			& .MessageInfo{
+				display: flex;
+
+				& .StatusMessage{
+					margin-right: 5px;
+						&[data-check=true]{
+							& svg{
+								fill: var(--primary-blue);
+							}
+						}
+		
+					& svg{
+						width: 20px;
+						fill: var(--primary-gray);
+						margin-right: 5px;
+					}
+				}
+		
+				& .LastMessageDate{
+					color: var(--primary-gray);
+					font-size: 14px;
+				}
+			}
+
+			& .UnreadMessages{
+				text-align: center;
+				min-width: 20px;
+				padding: 3px;
+				min-height: 20px;
+				border-radius: 15px;
+				color: #fff;
+				background-color: var(--background-color);
+
+				& span{
+					font-size: 16px;
+					margin: 0 2px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+@media (max-width: 450px){
+	.TWmobileMenu{
+		position: fixed;
+		bottom: 0;
+		background-color: var(--primary-black);
+		width: 100%;
+		padding: 12px 0;
+		z-index: 6;
+		
+		& .TWmobileList{
+			display: flex;
+			justify-content: space-around;
+	
+			& .TWmobileListItem{
+					&[data-active=true]{
+	
+						& svg{
+							fill: var(--primary-blue);
+						}
+					}
+	
+				& svg{
+					width: 40px;
+					fill: var(--primary-white);
+				}
+			}
+		}
+	}
+}

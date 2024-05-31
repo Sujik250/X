@@ -1,0 +1,118 @@
+@media (max-width: 450px){
+	.TWpostItem{
+		border-top: 1px solid var(--primary-gray);
+		padding-top: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+			&:first-child{
+				border-top: none;
+			}
+		
+		& img{
+			margin-left: 5%;
+			border-radius: 50%;
+			width: 58px;
+			height: 58px;
+			margin-right: 20px;
+		}
+
+		& .TWOtherMenu{
+			min-width: 15%;
+			max-width: 15%;
+
+			& svg{
+				fill: var(--primary-white);
+				width: 60%;
+			}
+		}
+
+		& .OtherMenuList{
+			display: grid;
+			grid-template-columns: repeat(5, 0fr);
+				&.ExtraEmojiMenuList{
+					border-top: 1px solid var(--primary-gray);
+					margin-top: 5px;
+					padding-top: 5px;
+				}
+
+			& .OtherMenuListItem{
+				display: flex;
+				margin: 5px;
+				font-size: 18px;
+			}
+		}
+
+	
+		& .TWpostItemInfo{
+			width: 50%;
+			margin-right: 5%;
+	
+			& .TWpostItemHeader{
+				margin-bottom: 5px;
+	
+				& .TWpostItemName{
+					margin-right: 5px;
+					color: var(--primary-blue);
+				}
+	
+				& .TWpostItemDate{
+					color: var(--primary-gray);
+					font-size: 14px;
+				}
+			}
+	
+			& .TWpostItemMain{
+				margin-bottom: 5px;				
+				& span{
+					display: block;
+					overflow-wrap: break-word;
+				}
+			}
+	
+			& .TWpostItemFooter{
+				display: flex;
+				align-items: center;
+	
+				& button{
+					display: flex;
+					align-items: center;
+					background: none;
+					border: none;
+					margin: 0;
+					padding: 0;
+	
+					& svg{
+						fill: var(--primary-white);
+						width: 28px;
+					}
+
+					& .TWpostItemLikeCount{
+						margin-left: 5px;
+						color: var(--primary-white);
+						font-size: 20px;
+					}
+				}
+			}
+
+			& .ReactionSection{
+				margin: 10px 0;
+				
+				& .ReactionEmoji{
+					display: inline-block;
+					position: static;
+					background-color: var(--background-color);
+					border-radius: 5px;
+					padding: 3px 5px;
+                    margin: 3px 5px;
+					color: var(--primary-blue);
+						&[data-selected=true]{
+							border: 2px solid var(--primary-blue);
+							background-color: rgba(29, 161, 242, 0.6);
+							color: #fff;
+						}
+				}
+			}
+		}
+	}
+}
