@@ -3,16 +3,49 @@
 import { useState } from 'react';
 import styles from './Shop.module.css'
 import { TwitterCloseSvg } from '@/assets/svg/TwitterSvg';
-import { ReactionCollection } from './ReactionCollection/ReactionCollection';
+import { ReactionCollection, userWalletData } from './ReactionCollection/ReactionCollection';
 import { StandartModalMenu } from '@/components/ui/ModalMenus/StandartModalMenu/StandartModalMenu';
+import { PROMOCODES } from '@/data/PromoCodes';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
+import { Notification } from '@/components/ui/Notification/Notification';
 
 export function Shop(): JSX.Element {
+	const [userWallet, setUserWallet] = useLocalStorage({
+        key: 'userWalletData',
+        defaultValue: userWalletData,
+    });
+
 	const [searchValue, setSearchValue] = useState('');
 	const [promoCodeValue, setPromoCodeValue] = useState('');
 	const [isModalPromoCodeActive, setIsModalPromoCodeActive] = useState(false);
+	const [isNotificationPromoActive, setIsNotificationPromoActive] = useState(false);
+
+	const enteringPromoCode = (value: string) => {
+		value = value.replace(/[^a-zA-Z0-9]/g, '');
+
+		let formattedValue = '';
+		for (let i = 0; i < value.length; i += 5) {
+			if (formattedValue) {
+				formattedValue += '-';
+			}
+			formattedValue += value.substring(i, i + 5);
+		}
+
+		setPromoCodeValue(formattedValue);
+	}
 
 	const checkPromoCode = () => {
+		const findIndex = PROMOCODES.findIndex((code) => code.code.toLowerCase() === promoCodeValue.toLowerCase())
 		
+		if (findIndex >= 0) {
+			setUserWallet({
+                ...userWallet,
+                wallet: userWallet.wallet + PROMOCODES[findIndex].coins
+            })
+			setIsModalPromoCodeActive(false)
+		} else {
+			setIsNotificationPromoActive(!isNotificationPromoActive)
+		}
 	}
 
 	return (
@@ -35,11 +68,17 @@ export function Shop(): JSX.Element {
 		</div>
 		<div className={ styles.AllCategoryProduct }>
 			<div className={ styles.Collections }>
-				<div className={ styles.CollectionsInfo }>
-					<span>Reaction Packs</span>
-					<span className={ styles.ShowAll }>Show All</span>
+				<div className={ styles.Collection }>
+					<div className={ styles.CollectionsInfo }>
+						<span>Reaction Packs</span>
+						<span className={ styles.ShowAll }>Show All</span>
+					</div>
+					<ReactionCollection 
+						searchValue={searchValue} 
+						userWallet={userWallet}
+						setUserWallet={setUserWallet}
+					/>
 				</div>
-				<ReactionCollection searchValue={searchValue} />
 			</div>
 		</div>
 		<div className={ styles.PromoCodeBtn }>
@@ -64,13 +103,24 @@ export function Shop(): JSX.Element {
 							placeholder='XXXXX-XXXXX-XXXXX'
 							value={promoCodeValue}
 							maxLength={17}
-							onChange={(e) => setPromoCodeValue(e.target.value)}
+							onChange={(e) => enteringPromoCode(e.target.value)}
 						/>
-						<button className={ styles.Done }>Done</button>
+						<button 
+							className={ styles.Done }
+							onClick={() => checkPromoCode()}
+						>
+							Done
+						</button>
 					</div>
 				</div>
 			</StandartModalMenu>
 		)}
+		{ isNotificationPromoActive && (
+			<Notification 
+				setIsNotificationActive={setIsNotificationPromoActive}
+				NotificationText='This code does not Exist!'
+			/>
+		) }
 		</>
 	)
 }

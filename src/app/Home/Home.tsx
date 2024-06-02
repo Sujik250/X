@@ -93,7 +93,7 @@ export function Home(): JSX.Element {
 			<StandartModalMenu
 				isActive={isModalEmojiActive} 
 				setIsActive={setIsModalEmojiActive}
-				top={20}
+				top={15}
 			>
 				<ExtraEmojiPackGenerator 
 					userWalletData={userWallet} 

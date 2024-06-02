@@ -32,18 +32,24 @@
 .AllCategoryProduct{
 
 	 & .Collections{
-		 
-		 & .CollectionsInfo{
-			display: flex;
-			justify-content: space-between;
-			margin: 15px 5% 0;
 
-			& .ShowAll{
-				color: var(--primary-blue);
-				font-size: 14px;
+		& .Collection{
+			&:last-child{
+				margin-bottom: 140px;
+			}
+
+			& .CollectionsInfo{
+				display: flex;
+				justify-content: space-between;
+				margin: 15px 5% 0;
+	
+				& .ShowAll{
+					color: var(--primary-blue);
+					font-size: 14px;
+				}
 			}
 		}
-	 }
+	}
 }
 
 .PromoCodeBtn{

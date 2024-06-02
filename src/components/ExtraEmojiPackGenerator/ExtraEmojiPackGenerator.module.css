@@ -1,4 +1,8 @@
-.ProductBlock {
+.ProductsBox {
+  overflow-y: scroll;
+  height: 50vh;
+}
+.ProductsBox .ProductBlock {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6,14 +10,14 @@
   border-top: 1px solid var(--primary-gray);
   padding-top: 10px;
 }
-.ProductBlock:first-child {
+.ProductsBox .ProductBlock:first-child {
   border: none;
 }
-.ProductBlock img {
+.ProductsBox .ProductBlock img {
   border-radius: 15px;
   width: 25%;
 }
-.ProductBlock .ImportantInfo {
+.ProductsBox .ProductBlock .ImportantInfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,22 +27,22 @@
           flex-direction: column;
   margin-left: 10px;
 }
-.ProductBlock .ImportantInfo .ProductName {
+.ProductsBox .ProductBlock .ImportantInfo .ProductName {
   font-size: 20px;
   margin-bottom: 10px;
 }
-.ProductBlock .ImportantInfo .ProductInclude {
+.ProductsBox .ProductBlock .ImportantInfo .ProductInclude {
   font-size: 18px;
   color: var(--background-color);
 }
-.ProductBlock .ImportantInfo .ProductInclude .ProductIncludeItem {
+.ProductsBox .ProductBlock .ImportantInfo .ProductInclude .ProductIncludeItem {
   border-right: 1px solid var(--background-color);
   padding: 3px;
 }
-.ProductBlock .ImportantInfo .ProductInclude .ProductIncludeItem:last-child {
+.ProductsBox .ProductBlock .ImportantInfo .ProductInclude .ProductIncludeItem:last-child {
   border: none;
 }
-.ProductBlock .ImportantInfo .ProductInclude .ProductIncludeItem[data-active=true] {
+.ProductsBox .ProductBlock .ImportantInfo .ProductInclude .ProductIncludeItem[data-active=true] {
   border: 1px solid var(--primary-accepted-green);
   border-radius: 5px;
 }

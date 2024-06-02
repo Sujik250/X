@@ -10,11 +10,7 @@ export const userWalletData: typeUserWalletData = {
 	productsPurchased: [],
 }
 
-export function ReactionCollection({ searchValue }: typeCollectionProps): JSX.Element {
-	const [userWallet, setUserWallet] = useLocalStorage({
-        key: 'userWalletData',
-        defaultValue: userWalletData,
-    });
+export function ReactionCollection({ userWallet, setUserWallet, searchValue }: typeCollectionProps): JSX.Element {
 
 	const [isModalActive, setIsModalActive] = useState<boolean[]>(Array(REACTIONPRODUCTS.length).fill(false));
 	const [isNotificationActive, setIsNotificationActive] = useState(false);

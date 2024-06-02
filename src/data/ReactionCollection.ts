@@ -13,6 +13,17 @@ export const REACTIONPRODUCTS: typeReactinData[] = [
 		id: 1,
 	},
 	{
+		preview: '/MeowPack.png',
+		name: 'Meow Pack',
+		category: 'Reaction Pack',
+		include: ['🙀', '😾', '😿', '😹', '😻'],
+		priceInfo: {
+			price: 10,
+			discount: 0,
+		},
+		id: 2,
+	},
+	{
 		preview: '/HalloweenPack.png',
 		name: 'Halloween Pack',
 		category: 'Reaction Pack',
@@ -21,7 +32,7 @@ export const REACTIONPRODUCTS: typeReactinData[] = [
 			price: 8,
 			discount: 0,
 		},
-		id: 2,
+		id: 3,
 	},
 	{
 		preview: '/Vibe2024Pack.png',
@@ -32,17 +43,29 @@ export const REACTIONPRODUCTS: typeReactinData[] = [
 			price: 12,
 			discount: 0,
 		},
-		id: 3,
+		id: 4,
+	},
+	{
+		preview: '/ScopoPhobiaPack.png',
+		name: 'ScopoPhobia Pack',
+		category: 'Reaction Pack',
+		include: ['👁', '👁‍🗨', '🧿', '🪬'],
+		priceInfo: {
+			price: 8,
+			discount: 0,
+		},
+		id: 5,
 	},
 
 	// {
-	// 	preview: '/.png',
+	// 	preview: '/Pack.png',
 	// 	name: '',
-	// 	category: '',
+	// 	category: 'Reaction Pack',
 	// 	include: [''],
 	// 	priceInfo: {
-	// 		price: ,
+	// 		price: 0,
 	// 		discount: 0,
 	// 	},
+	// 	id: 0,
 	// },
 ]

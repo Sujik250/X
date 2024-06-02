@@ -5,7 +5,7 @@
     background-color: var(--primary-black);
     width: 100%;
     padding: 12px 0;
-    z-index: 6;
+    z-index: 5;
   }
   .TWmobileMenu .TWmobileList {
     display: -webkit-box;

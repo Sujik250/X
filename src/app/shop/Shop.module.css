@@ -32,7 +32,10 @@
   fill: var(--text-color);
 }
 
-.AllCategoryProduct .Collections .CollectionsInfo {
+.AllCategoryProduct .Collections .Collection:last-child {
+  margin-bottom: 140px;
+}
+.AllCategoryProduct .Collections .Collection .CollectionsInfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -41,7 +44,7 @@
           justify-content: space-between;
   margin: 15px 5% 0;
 }
-.AllCategoryProduct .Collections .CollectionsInfo .ShowAll {
+.AllCategoryProduct .Collections .Collection .CollectionsInfo .ShowAll {
   color: var(--primary-blue);
   font-size: 14px;
 }

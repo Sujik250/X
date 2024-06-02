@@ -12,8 +12,6 @@ interface IExtraEmojiPackGeneratorProps {
 }
 
 export function ExtraEmojiPackGenerator({ setIsNotificationEmojiActive, isNotificationEmojiActive, setIsModalEmojiActive, userWalletData, setUserWalletData, setExtraEmojis }: IExtraEmojiPackGeneratorProps): JSX.Element {
-	const [isNotificationActive, setIsNotificationActive] = useState(false);
-	
 	const changeSelectedItem = (packID: number, packIncludeID: number) => {
 		const copy = {...userWalletData}
 		const productIndex = copy.productsPurchased.findIndex(product => product.productID === packID)
@@ -27,7 +25,6 @@ export function ExtraEmojiPackGenerator({ setIsNotificationEmojiActive, isNotifi
 
 	const addExtraEmoji = () => {
 		const selectedIncludes: string[] = [];
-		console.log(selectedIncludes.length)
 		
 		userWalletData.productsPurchased.forEach(product => {
 			if (product.productItemSelectedID.some(selected => selected)) {
@@ -48,6 +45,7 @@ export function ExtraEmojiPackGenerator({ setIsNotificationEmojiActive, isNotifi
 	
 	return (
 		<>
+		<div className={ styles.ProductsBox }>
 			{ userWalletData.productsPurchased.map((item) => (
 				REACTIONPRODUCTS.filter((elemnt) => elemnt.id === item.productID).map(((product, index) => (
 					<div key={index} className={ styles.ProductBlock }>
@@ -72,6 +70,7 @@ export function ExtraEmojiPackGenerator({ setIsNotificationEmojiActive, isNotifi
 					</div>
 				)))
 			)) }
+		</div>
 			<div 
 				className={ styles.DoneBtn }
 				onClick={() => addExtraEmoji()}

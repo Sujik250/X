@@ -5,6 +5,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+			&:last-child{
+				margin-bottom: 100px;
+			}
 			&:first-child{
 				border-top: none;
 			}
