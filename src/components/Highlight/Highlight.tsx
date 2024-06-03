@@ -10,7 +10,7 @@ export function Highlight({ text, searchHighlight, hashTagHighlight }: typeHighl
 		  {parts.map((part, index) => {
 			if (index % 2 === 1) {
 			  return <Link 
-			  			href={`/search=${part}`} 
+			  			href={`search/${part.slice(1, part.length)}`} 
 						className='hashtag'
 			  			key={index}
 					  >

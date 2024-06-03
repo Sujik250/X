@@ -18,8 +18,8 @@ export function MobileMenu(): JSX.Element {
 						<TwitterHomeSvg />
 					</Link>
 				</li>
-				<li className={ styles.TWmobileListItem } data-active={path === '/search' ? 'true' : 'false'}>
-					<Link href={'/search'}>
+				<li className={ styles.TWmobileListItem } data-active={path === `/search/${path.slice(8, path.length)}` ? 'true' : 'false'}>
+					<Link href={`/search/null`}>
 						<TwitterSearchSvg />
 					</Link>
 				</li>
