@@ -1,4 +1,5 @@
 type typeHighlightProps = {
 	text: string;
-	highlight: string;
+	searchHighlight: string;
+	hashTagHighlight: string;
 }

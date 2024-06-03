@@ -60,7 +60,11 @@ export function PostItem({ searchValue = '', posts, setPosts }: typePropsPostIte
 								<span className={styles.TWpostItemDate}>{item.date}</span>
 							</div>
 							<div className={styles.TWpostItemMain}>
-								<Highlight text={item.shortPostText} highlight={searchValue} />
+								<Highlight 
+									text={item.shortPostText} 
+									searchHighlight={searchValue} 
+									hashTagHighlight={'#'}
+								/>
 							</div>
 							<div className={styles.TWpostItemFooter}>
 								<button onClick={() => liked(item.id)}>
