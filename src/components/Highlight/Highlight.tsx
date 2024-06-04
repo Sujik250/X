@@ -11,7 +11,7 @@ export function Highlight({ text, searchHighlight, hashTagHighlight }: typeHighl
 			if (index % 2 === 1) {
 				console.log(`search/'#${part.slice(1, part.length)}'`)
 			  return <Link 
-			  			href={`search/ht=${part.slice(1, part.length)}`} 
+			  			href={`search/htg=${part.slice(1, part.length)}`} 
 						className='hashtag'
 			  			key={index}
 					  >

@@ -20,10 +20,9 @@ export function Search(): JSX.Element {
 	const [searchValue, setSearchValue] = useState('');
 	
 	useEffect(() => {
-		const pathValue = path.slice(8, path.length) !== 'null'? `${path.slice(8, path.length)}` : ''
-		if (path.slice(8, 11) === 'ht=') {
-			console.log(pathValue)
-			const hashTagValue = '#'+pathValue.slice(3, path.length)
+		const pathValue = path.slice(12, path.length)
+		if (path.slice(8, 12) === 'htg=') {
+			const hashTagValue = '#'+path.slice(12, path.length)
 			setSearchValue(hashTagValue)
 		} else {
 			setSearchValue(pathValue)
