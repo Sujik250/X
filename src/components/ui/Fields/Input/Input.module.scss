@@ -1,0 +1,30 @@
+.Field{
+	width: 70%;
+	height: 35px;
+	border: none;
+	background-color: var(--primary-black);
+	border: 2px solid var(--primary-blue);
+	border-radius: 15px;
+	outline: none;
+	color: var(--text-color);
+	font-size: 17px;
+	padding-left: 10px;
+	padding-right: 40px;
+}
+
+.InputBar{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	& .TWclearBtn{
+		position: absolute;
+		right: 12%;
+		height: 16px;
+
+		& svg{
+			width: 16px;
+			fill: var(--text-color);
+		}
+	}
+}

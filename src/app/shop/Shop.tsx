@@ -1,13 +1,14 @@
 'use client'
 
 import { useState } from 'react';
-import styles from './Shop.module.css'
-import { TwitterCloseSvg } from '@/assets/svg/TwitterSvg';
+import styles from './Shop.module.scss'
 import { ReactionCollection, userWalletData } from './ReactionCollection/ReactionCollection';
 import { StandartModalMenu } from '@/components/ui/ModalMenus/StandartModalMenu/StandartModalMenu';
 import { PROMOCODES } from '@/data/PromoCodes';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { Notification } from '@/components/ui/Notification/Notification';
+import { Input } from '@/components/ui/Fields/Input/Input';
+import { StandartButton } from '@/components/ui/Buttons/StandartButton/StandartButton';
 
 export function Shop(): JSX.Element {
 	const [userWallet, setUserWallet] = useLocalStorage({
@@ -50,22 +51,12 @@ export function Shop(): JSX.Element {
 
 	return (
 		<>
-		<div className={ styles.ShopHeader }>
-			<input 
-				type="text"
-				placeholder='Search' 
-				value={searchValue}
-				onChange={(e) => setSearchValue(e.target.value)}
-			/>
-			{ searchValue.length > 0 ? 
-				<div 
-					className={ styles.TWclearBtn }
-					onClick={() => setSearchValue('')}
-				>
-					<TwitterCloseSvg />
-				</div> : '' 
-			}
-		</div>
+		<Input
+			type={'text'}
+			placeholder='Search'
+			fieldValue={searchValue}
+			setFieldValue={setSearchValue}
+		/>
 		<div className={ styles.AllCategoryProduct }>
 			<div className={ styles.Collections }>
 				<div className={ styles.Collection }>
@@ -82,11 +73,10 @@ export function Shop(): JSX.Element {
 			</div>
 		</div>
 		<div className={ styles.PromoCodeBtn }>
-			<button 
-				onClick={() => setIsModalPromoCodeActive(!isModalPromoCodeActive)}
-			>
-				Enter PromoCode
-			</button>
+			<StandartButton
+			    text={'Enter PromoCode'}
+				setValue={() => setIsModalPromoCodeActive(true)}
+			/>
 		</div>
 		{ isModalPromoCodeActive && (
 			<StandartModalMenu
@@ -98,19 +88,17 @@ export function Shop(): JSX.Element {
 				<div className={ styles.ModalMenuPromoCode }>
 					<div className={ styles.InsideMenu }>
 						<span className={ styles.ClueText }>Using Promo Codes you can get XCoins and more</span>
-						<input 
-							type="text" 
-							placeholder='XXXXX-XXXXX-XXXXX'
-							value={promoCodeValue}
+						<Input
+							type={'text'}
+							placeholder={'XXXXX-XXXXX-XXXXX'}
 							maxLength={17}
-							onChange={(e) => enteringPromoCode(e.target.value)}
+							fieldValue={promoCodeValue}
+							setFieldValue={enteringPromoCode}
 						/>
-						<button 
-							className={ styles.Done }
-							onClick={() => checkPromoCode()}
-						>
-							Done
-						</button>
+						<StandartButton
+							text={'Done'}
+							setValue={checkPromoCode}
+						/>
 					</div>
 				</div>
 			</StandartModalMenu>

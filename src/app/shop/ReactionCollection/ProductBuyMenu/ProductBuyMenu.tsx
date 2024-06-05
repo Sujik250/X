@@ -2,6 +2,7 @@ import { REACTIONPRODUCTS } from '@/data/ReactionCollection'
 import styles from './ProductBuyMenu.module.scss'
 import { TwitterCloseSvg, TwitterMessageNotDeliveredSvg } from '@/assets/svg/TwitterSvg'
 import { useAbbreviateNumber } from '@/hooks/useAbbreviateNumber'
+import { StandartButton } from '@/components/ui/Buttons/StandartButton/StandartButton'
 
 export function ProductBuyMenu({ index, toggleIsModalActive, buyProduct, userWalletData }: typeProductBuyMenuProps): JSX.Element {
 	return (
@@ -34,42 +35,41 @@ export function ProductBuyMenu({ index, toggleIsModalActive, buyProduct, userWal
 			<div className={ styles.BuyBtnBlock }>
 				{ userWalletData.productsPurchased.some((product) => product.productID === REACTIONPRODUCTS[index].id)
 					?  <span className={ styles.AddedBlock }><TwitterMessageNotDeliveredSvg/> Added</span>
-					: <button 
-						className={ styles.BuyProduct }
-						onClick={() => buyProduct(index)}
-					  >
-						{ REACTIONPRODUCTS[index].priceInfo.discount !== 100 
-						? 
-						<>
-						{`Buy for `}
-						<span 
-							className={ REACTIONPRODUCTS[index].priceInfo.discount === 0 
-								? styles.ProductPrice
-								: `${styles.ProductPrice} ${styles.ProductPriceDiscount}` 
-							}
-						>
-							{REACTIONPRODUCTS[index].priceInfo.price}
-						</span>
-						<span 
-							className={ REACTIONPRODUCTS[index].priceInfo.discount !== 0 
-								? styles.ProductPrice
-								: `${styles.ProductPrice} ${styles.ProductPriceDiscount}` 
-							}
-							style={{
-								display: REACTIONPRODUCTS[index].priceInfo.discount !== 0 ? 'inline-block' : 'none'
-							}}
-							>
-								{ REACTIONPRODUCTS[index].priceInfo.discount === 100 ? 'Free' : Math.floor(REACTIONPRODUCTS[index].priceInfo.price * (1 - REACTIONPRODUCTS[index].priceInfo.discount / 100))}
-						</span>
-						{` XCoins`}
-						{ REACTIONPRODUCTS[index].priceInfo.discount !== 0 
-							? <span className={ styles.CurrentDiscount }>
-								{`${REACTIONPRODUCTS[index].priceInfo.discount}%`}
-							</span> 
-							: '' 
-						}
-						</> : 'Free'}
-					  </button>
+					: 
+					<StandartButton
+						setValue={() => buyProduct(index)}
+						text={REACTIONPRODUCTS[index].priceInfo.discount !== 100 
+								? 
+								<>
+								{`Buy for `}
+								<span 
+									className={ REACTIONPRODUCTS[index].priceInfo.discount === 0 
+										? styles.ProductPrice
+										: `${styles.ProductPrice} ${styles.ProductPriceDiscount}` 
+									}
+								>
+									{REACTIONPRODUCTS[index].priceInfo.price}
+								</span>
+								<span 
+									className={ REACTIONPRODUCTS[index].priceInfo.discount !== 0 
+										? styles.ProductPrice
+										: `${styles.ProductPrice} ${styles.ProductPriceDiscount}` 
+									}
+									style={{
+										display: REACTIONPRODUCTS[index].priceInfo.discount !== 0 ? 'inline-block' : 'none'
+									}}
+									>
+										{ REACTIONPRODUCTS[index].priceInfo.discount === 100 ? 'Free' : Math.floor(REACTIONPRODUCTS[index].priceInfo.price * (1 - REACTIONPRODUCTS[index].priceInfo.discount / 100))}
+								</span>
+								{` XCoins`}
+								{ REACTIONPRODUCTS[index].priceInfo.discount !== 0 
+									? <span className={ styles.CurrentDiscount }>
+										{`${REACTIONPRODUCTS[index].priceInfo.discount}%`}
+									</span> 
+									: '' 
+								}
+								</> : 'Free'}
+					/>
 				}
 
 			</div>

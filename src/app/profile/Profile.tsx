@@ -1,8 +1,9 @@
 'use client'
 
 import { useLocalStorage } from '@/hooks/useLocalStorage';
-import styles from './Profile.module.css'
+import styles from './Profile.module.scss'
 import { TwitterCalendarSvg } from '@/assets/svg/TwitterSvg'
+import { StandartButton } from '@/components/ui/Buttons/StandartButton/StandartButton';
 
 export function Profile(): JSX.Element {
 	const [settings, setSettings] = useLocalStorage({
@@ -47,7 +48,10 @@ export function Profile(): JSX.Element {
 					</div>
 				</div>
 			</div>
-			<button>Edit</button>
+			<StandartButton
+				text={'Edit'}
+				setValue={console.log}
+			/>
 		</div>
 		</>
 	)

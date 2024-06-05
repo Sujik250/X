@@ -1,12 +1,13 @@
 'use client'
 
-import styles from './ChatMenu.module.css'
+import styles from './ChatMenu.module.scss'
 import { useParams } from 'next/navigation'
 import { TwitterBackSvg, TwitterMessageDeliveredSvg, TwitterSendSvg } from '@/assets/svg/TwitterSvg'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { chatsData } from '../Chat'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
+import { TextArea } from '@/components/ui/Fields/TextArea/TextArea'
 
 export function ChatMenu(): JSX.Element {
 	const [chats, setChats] = useLocalStorage({
@@ -91,7 +92,11 @@ export function ChatMenu(): JSX.Element {
 					))}
 				</div>
 				<div className={ styles.CreateMessage }>
-					<textarea value={textAreaValue} placeholder='Message' onChange={(e) => setTextAreaValue(e.target.value)} />
+					<TextArea
+						placeholder={'Message'}
+						fieldValue={textAreaValue}
+						setFieldValue={setTextAreaValue}
+					/>
 					{ textAreaValue.length > 0 
 					? <div className={ styles.SendButton } onClick={() => { 
 						sendMessage()

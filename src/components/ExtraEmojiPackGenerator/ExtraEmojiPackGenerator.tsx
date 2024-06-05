@@ -1,6 +1,7 @@
 import { REACTIONPRODUCTS } from '@/data/ReactionCollection';
 import styles from './ExtraEmojiPackGenerator.module.scss'
 import { useState } from 'react';
+import { StandartButton } from '../ui/Buttons/StandartButton/StandartButton';
 
 interface IExtraEmojiPackGeneratorProps {
 	userWalletData: typeUserWalletData;
@@ -73,9 +74,11 @@ export function ExtraEmojiPackGenerator({ setIsNotificationEmojiActive, isNotifi
 		</div>
 			<div 
 				className={ styles.DoneBtn }
-				onClick={() => addExtraEmoji()}
 			>
-				<button className={ styles.Done }>Done</button>
+				<StandartButton
+					text={'Done'}
+					setValue={addExtraEmoji}
+				/>
 			</div>
 		</>
 	)

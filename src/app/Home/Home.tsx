@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react';
-import styles from './Home.module.css'
+import styles from './Home.module.scss'
 import { PostItem } from '@/components/PostItem/PostItem'
 import { typePostItem, typeReactionData } from '@/types/PostItem'
 import { useLocalStorage } from '@/hooks/useLocalStorage';
@@ -10,6 +10,7 @@ import { ExtraEmojiPackGenerator } from '@/components/ExtraEmojiPackGenerator/Ex
 import { Notification } from '@/components/ui/Notification/Notification';
 import { userWalletData } from '../shop/ReactionCollection/ReactionCollection';
 import { CreatePost } from './CreatePost/CreatePost';
+import { StandartButton } from '@/components/ui/Buttons/StandartButton/StandartButton';
 
 export const postsData: typePostItem[] = [];
 
@@ -36,12 +37,11 @@ export function Home(): JSX.Element {
 	const [isNotificationActive, setIsNotificationActive] = useState(false);
 	const [isNotificationEmojiActive, setIsNotificationEmojiActive] = useState(false);
 	const [extraEmojis, setExtraEmojis] = useState<string[]>([]);
-
-	const refTextArea = useRef<HTMLTextAreaElement>(null);
+	const [textAreaValue, setTextAreaValue] = useState<string>('');
 
 	const createNewPost = () => {
 		let now = new Date();
-		const textareaCurrent: string | undefined = refTextArea.current?.value;
+		const textareaCurrent: string = textAreaValue;
 		if (textareaCurrent) {
 			const newPost: typePostItem = { 
 				name: 'Anonymous', 
@@ -76,14 +76,18 @@ export function Home(): JSX.Element {
 					setPosts={setPosts}
 				/>
 			</div>
-			<div className={ styles.TWcreatePostBtn } onClick={() => setIsCreatePostMenu(true)}>
-				<span>Create Post</span>
+			<div className={ styles.TWcreatePostBtn }>
+				<StandartButton
+					text={'Create Post'}
+					setValue={() => setIsCreatePostMenu(true)}
+				/>
 			</div> 
-			</> : <CreatePost 
-					refTextArea={refTextArea}
+			</> : <CreatePost
+					textAreaValue={textAreaValue}
 					userWallet={userWallet}
 					isModalEmojiActive={isModalEmojiActive}
 					createNewPost={createNewPost}
+					setTextAreaValue={setTextAreaValue}
 					setIsCreatePostMenu={setIsCreatePostMenu}
 					setIsModalEmojiActive={setIsModalEmojiActive}
 					setIsNotificationActive={setIsNotificationActive}

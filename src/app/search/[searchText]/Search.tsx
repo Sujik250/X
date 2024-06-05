@@ -1,12 +1,12 @@
 'use client'
 
-import { TwitterCloseSvg } from '@/assets/svg/TwitterSvg'
-import styles from './Search.module.css'
+import styles from './Search.module.scss'
 import { useEffect, useState } from 'react';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { PostItem } from '@/components/PostItem/PostItem';
 import { typePostItem } from '@/types/PostItem';
 import { usePathname } from 'next/navigation';
+import { Input } from '@/components/ui/Fields/Input/Input';
 
 export const postsData: typePostItem[] = [];
 
@@ -31,22 +31,12 @@ export function Search(): JSX.Element {
 
 	return (
 		<>
-		<div className={ styles.TWsearchBar }>
-			<input 
-				type="text"
-				placeholder='Search'
-				value={searchValue}
-				onChange={(e) => setSearchValue(e.target.value)}
-			/>
-			{ searchValue.length > 0 ? 
-				<div 
-					className={ styles.TWclearBtn }
-					onClick={() => setSearchValue('')}
-				>
-					<TwitterCloseSvg />
-				</div> : '' 
-			}
-		</div>
+		<Input 
+			type={'text'}
+			placeholder='Search'
+			fieldValue={searchValue}
+			setFieldValue={setSearchValue}
+		/>
 		{ searchValue.length > 0 && (
 			<div className={ styles.TWpostsSearchResult }>
 				<PostItem 

@@ -1,11 +1,14 @@
 'use client'
 
 import { ChatGenerator } from '@/components/ChatGenerator/ChatGenerator'
-import styles from './Chat.module.css'
-import { TwitterAddPostSvg } from '@/assets/svg/TwitterSvg'
+import styles from './Chat.module.scss'
+import { TwitterAddPostSvg, TwitterCloseSvg } from '@/assets/svg/TwitterSvg'
 import { useState } from 'react';
 import { StandartModalMenu } from '@/components/ui/ModalMenus/StandartModalMenu/StandartModalMenu';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
+import { Input } from '@/components/ui/Fields/Input/Input';
+import { TextArea } from '@/components/ui/Fields/TextArea/TextArea';
+import { StandartButton } from '@/components/ui/Buttons/StandartButton/StandartButton';
 
 export const chatsData: typeChatData[] = []
 
@@ -58,17 +61,18 @@ export function Chat(): JSX.Element {
 			}
 			setChats(prevChats => [newChat, ...prevChats])
 		}
+		setIsModalActive(false)
 	}
 
 	return (
 		<>
 		<ChatGenerator chats={chats}/>
-		<button 
-			className={ styles.AddNewChat }
-			onClick={() => setIsModalActive(!isModalActive)}
-		>
-			<TwitterAddPostSvg/>
-		</button>
+		<div className={ styles.AddNewChat }>
+			<StandartButton
+				text={<TwitterAddPostSvg/>}
+				setValue={() => setIsModalActive(!isModalActive)}
+			/>
+		</div>
 		{ isModalActive 
 		  ? <StandartModalMenu 
 		  		isActive={isModalActive} 
@@ -77,28 +81,25 @@ export function Chat(): JSX.Element {
 				left={0}
 			>
 				<div className={ styles.ModalMenuMain }>
-					<input 
-						className={ styles.Field }
-						type="number" 
-						placeholder='Enter random Number'
-						onChange={(e) => setInputValue(e.target.value)}
+					<Input 
+						type={'number'}
+						placeholder={'Enter random Number'}
+						fieldValue={inputValue}
+						setFieldValue={setInputValue}
 					/>
-					<textarea 
-						className={ styles.Field }
-						placeholder='Enter Message'
-						onChange={(e) => setTextAreaValue(e.target.value)}
-					/>
-					<span className={ styles.Clue }>By entering the number, you can get in touch with a random user</span>
-					{ inputValue.length > 0 && textAreaValue.length > 0 
-						? <button 
-							className={ styles.AddChatBtn }
-							onClick={() => {
-								addNewChat()
-								setIsModalActive(false)
-							}}
-						>
-							Add Chat
-						</button> : '' }
+					<div className={ styles.extraBlock }>
+						<TextArea
+							fieldValue={textAreaValue}
+							placeholder={'Enter Message'}
+							setFieldValue={setTextAreaValue}
+						/>
+						<span className={ styles.Clue }>By entering the number, you can get in touch with a random user</span>
+						{ inputValue.length > 0 && textAreaValue.length > 0 
+							? <StandartButton
+								text={'Add Chat'}
+								setValue={addNewChat}
+							  /> : '' }
+					</div>
 				</div>
 			</StandartModalMenu>
 		  : ''

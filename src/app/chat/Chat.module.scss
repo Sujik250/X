@@ -1,54 +1,40 @@
 .AddNewChat{
 	position: fixed;
-	display: flex;
-	align-items: center;
 	bottom: 75px;
-	right: 5%;
-	padding: 5px;
-	background: var(--primary-blue);
-	border: none;
-	border-radius: 50%;
+	right: 5px;
 
-	& svg{
-		width: 42px;
-		height: 42px;
-		fill: #fff;
+	& button{
+		display: flex;
+		align-items: center;
+		padding: 5px;
+		border-radius: 50%;
+
+		& span{
+			font-size: 0;
+
+			& svg{
+				width: 42px;
+				height: 42px;
+				fill: #fff;
+			}
+		}
+
 	}
 }
 
 .ModalMenuMain{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+	padding: 10px;
 
-	& .Field{
-        background-color: var(--primary-black);
-        border: 2px solid var(--primary-blue);
-        border-radius: 5px;
-        outline: none;
-        color: var(--text-color);
+	& .extraBlock{
 		margin-top: 10px;
-		padding: 5px 0 5px 5px;
-		width: 70%;
-		font-size: 16px;
-	}
-
-	& .Clue{
-		margin-top: 15px;
-		padding-bottom: 5px;
-		text-align: center;
-		font-size: 17px;
-	}
-
-	& .AddChatBtn{
-		color: #fff;
-		background-color: var(--primary-blue);
-		border: none;
-		border-radius: 10px;
-		height: min-content;
-		font-size: 16px;
-		padding: 5px 15px;
-		margin: 10px 0;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		
+		& .Clue{
+			margin: 10px 0;
+			text-align: center;
+			font-size: 17px;
+		}
 	}
 }

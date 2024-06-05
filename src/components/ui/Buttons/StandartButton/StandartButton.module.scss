@@ -1,0 +1,11 @@
+.StandartButton{
+	background-color: var(--primary-blue);
+	padding: 5px 15px;
+	border: none;
+	border-radius: 10px;
+	color: #fff;
+
+	& span{
+		font-size: 16px;
+	}
+}
