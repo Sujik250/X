@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import styles from './MobileMenu.module.css'
+import styles from './MobileMenu.module.scss'
 import { TwitterSearchSvg, TwitterChatSvg, TwitterHomeSvg, TwitterProfileSvg, TwitterShopSvg } 
 from '@/assets/svg/TwitterSvg'
 import { usePathname } from 'next/navigation'

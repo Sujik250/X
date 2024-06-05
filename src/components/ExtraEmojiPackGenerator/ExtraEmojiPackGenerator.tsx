@@ -1,5 +1,5 @@
 import { REACTIONPRODUCTS } from '@/data/ReactionCollection';
-import styles from './ExtraEmojiPackGenerator.module.css'
+import styles from './ExtraEmojiPackGenerator.module.scss'
 import { useState } from 'react';
 
 interface IExtraEmojiPackGeneratorProps {

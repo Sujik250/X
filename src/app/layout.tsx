@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import '@/assets/style/index.css'
+import '@/assets/style/index.scss'
 import { ThemeCurrent } from '@/providers/themeChange'
 
 export const metadata: Metadata = {

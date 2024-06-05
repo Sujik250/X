@@ -1,5 +1,5 @@
 import { REACTIONPRODUCTS } from '@/data/ReactionCollection'
-import styles from './ReactionCollection.module.css'
+import styles from './ReactionCollection.module.scss'
 import { useState } from 'react';
 import { ProductBuyMenu } from './ProductBuyMenu/ProductBuyMenu';
 import { useLocalStorage } from '@/hooks/useLocalStorage';

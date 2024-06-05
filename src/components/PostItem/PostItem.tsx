@@ -1,6 +1,6 @@
 'use client'
 
-import styles from './PostItem.module.css'
+import styles from './PostItem.module.scss'
 import { typePropsPostItem, typeReactionData } from '@/types/PostItem'
 import { TwitterLikeSvg, TwitterFillLikeSvg, TwitterOtherPointsSvg } from '@/assets/svg/TwitterSvg'
 import { useState } from 'react';

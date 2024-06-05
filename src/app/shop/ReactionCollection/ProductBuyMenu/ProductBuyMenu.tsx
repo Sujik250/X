@@ -1,5 +1,5 @@
 import { REACTIONPRODUCTS } from '@/data/ReactionCollection'
-import styles from './ProductBuyMenu.module.css'
+import styles from './ProductBuyMenu.module.scss'
 import { TwitterCloseSvg, TwitterMessageNotDeliveredSvg } from '@/assets/svg/TwitterSvg'
 import { useAbbreviateNumber } from '@/hooks/useAbbreviateNumber'
 

@@ -1,4 +1,4 @@
-import styles from './StandartModalMenu.module.css'
+import styles from './StandartModalMenu.module.scss'
 
 export function StandartModalMenu({ setIsActive, children, translateY = 0, translateX = 0, top = '', left = '' }: typeModalMenuProps): JSX.Element {
 	return (

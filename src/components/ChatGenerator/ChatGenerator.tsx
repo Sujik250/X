@@ -1,5 +1,5 @@
 import { TwitterMessageDeliveredSvg, TwitterMessageNotDeliveredSvg } from '@/assets/svg/TwitterSvg'
-import styles from './ChatGenerator.module.css'
+import styles from './ChatGenerator.module.scss'
 import Link from 'next/link'
 
 export function ChatGenerator({ chats }: typeChatGeneratorProps): JSX.Element {

@@ -1,4 +1,4 @@
-import styles from './Loading.module.css'
+import styles from './Loading.module.scss'
 
 export function Loading(): JSX.Element {
 	return (
