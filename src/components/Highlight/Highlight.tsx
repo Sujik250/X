@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Highlight({ text, searchHighlight, hashTagHighlight }: typeHighlightProps) {
 	if (!searchHighlight.trim() && hashTagHighlight) {
-	  const hashTagRegex = /(#\w+)/g;
+	  const hashTagRegex = /(#\S+)/g;
 	  const parts = text.split(hashTagRegex);
   
 	  return (
@@ -23,19 +23,20 @@ export function Highlight({ text, searchHighlight, hashTagHighlight }: typeHighl
 		</span>
 	  );
 	} else {
-	  const regex = new RegExp(`(${searchHighlight})`, 'gi');
-	  const parts = text.split(regex);
-  
-	  return (
-		<span>
-		  {parts.map((part, index) =>
-			regex.test(part) ? (
+		const escapedSearchHighlight = searchHighlight.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+		const regex = new RegExp(`(${escapedSearchHighlight})`, 'gi');
+		const parts = text.split(regex);
+	
+		return (
+		  <span>
+			{parts.map((part, index) => 
+			  part.match(regex) ? (
 				<mark key={index}>{part}</mark>
-			) : (
-			  part
-			)
-		  )}
-		</span>
-	  );
-	}
+			  ) : (
+				part
+			  )
+			)}
+		  </span>
+		);
+	  }
   }

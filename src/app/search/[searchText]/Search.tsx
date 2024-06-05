@@ -11,7 +11,7 @@ import { Input } from '@/components/ui/Fields/Input/Input';
 export const postsData: typePostItem[] = [];
 
 export function Search(): JSX.Element {
-	const path = usePathname()
+	const path = decodeURIComponent(usePathname())
 
 	const [posts, setPosts] = useLocalStorage({
         key: 'postsData',

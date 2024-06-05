@@ -1,59 +1,58 @@
 .AllCategoryProduct{
 
-	 & .Collections{
+	& .Collections{
 
-		& .Collection{
-			&:last-child{
-				margin-bottom: 140px;
-			}
+	   & .Collection{
+		   &:last-child{
+			   margin-bottom: 140px;
+		   }
 
-			& .CollectionsInfo{
-				display: flex;
-				justify-content: space-between;
-				margin: 15px 5% 0;
-	
-				& .ShowAll{
-					color: var(--primary-blue);
-					font-size: 14px;
-				}
-			}
-		}
-	}
+		   & .CollectionsInfo{
+			   display: flex;
+			   justify-content: space-between;
+			   margin: 15px 5% 0;
+   
+			   & .ShowAll{
+				   color: var(--primary-blue);
+				   font-size: 14px;
+			   }
+		   }
+	   }
+   }
 }
 
 .PromoCodeBtn{
-	position: fixed;
-	bottom: 75px;
-	right: 5px;
+   position: fixed;
+   bottom: 75px;
+   right: 5px;
 
-	& button{
-		padding: 10px 15px;
-	}
+   & button{
+	   padding: 10px 15px;
+   }
 }
 
 .ModalMenuPromoCode{
-	
-	& .InsideMenu{
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		margin: 3% 5%;
+   
+   & .InsideMenu{
+	   display: flex;
+	   flex-direction: column;
+	   justify-content: center;
+	   margin: 0% 5%;
 
-		& .ClueText{
-			text-align: center;
-			font-size: 17px;
-			margin-bottom: 3%;
-		}
-		
-		& input{
-			width: 80%;
-			text-transform: uppercase;
-		}
-		
-		& button{
-			margin-top: 3%;
-			width: 50%;
-		}
-	}
+	   & .ClueText{
+		   text-align: center;
+		   font-size: 17px;
+		   margin: 3%;
+	   }
+	   
+	   & input{
+		   width: 80%;
+		   text-transform: uppercase;
+	   }
+	   
+	   & button{
+		   margin: 3% auto;
+		   width: 50%;
+	   }
+   }
 }
