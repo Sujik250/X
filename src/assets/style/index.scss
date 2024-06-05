@@ -125,11 +125,17 @@ a{
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		flex-direction: column;
 		height: 70vh;
 
 		& svg{
-			width: 256px;
+			width: 232px;
 			fill: var(--primary-white);
+		}
+
+		& .LoadingIndicator{
+			position: absolute;
+			bottom: 100px;
 		}
 	}
 

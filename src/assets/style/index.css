@@ -124,11 +124,19 @@ a {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     height: 70vh;
   }
   .TWloadingScreen svg {
-    width: 256px;
+    width: 232px;
     fill: var(--primary-white);
+  }
+  .TWloadingScreen .LoadingIndicator {
+    position: absolute;
+    bottom: 100px;
   }
   mark, .hashtag {
     background-color: transparent;
