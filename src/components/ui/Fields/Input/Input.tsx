@@ -1,5 +1,5 @@
 import { TwitterCloseSvg } from '@/assets/svg/TwitterSvg';
-import styles from './input.module.scss'
+import styles from './Input.module.scss'
 
 export function Input({ type, placeholder, fieldValue, maxLength, setFieldValue }: TFieldProps): JSX.Element {
 	return (
