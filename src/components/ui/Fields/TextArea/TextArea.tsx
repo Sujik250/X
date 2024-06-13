@@ -1,4 +1,4 @@
-import styles from '../Input/input.module.scss'
+import styles from '../Fields.module.scss'
 
 export function TextArea({ maxLength, placeholder, fieldValue, setFieldValue }: TFieldProps): JSX.Element {
 	return (

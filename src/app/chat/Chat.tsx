@@ -6,9 +6,9 @@ import { TwitterAddPostSvg, TwitterCloseSvg } from '@/assets/svg/TwitterSvg'
 import { useState } from 'react';
 import { StandartModalMenu } from '@/components/ui/ModalMenus/StandartModalMenu/StandartModalMenu';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
-import { Input } from '@/components/ui/Fields/Input/Input';
 import { TextArea } from '@/components/ui/Fields/TextArea/TextArea';
 import { StandartButton } from '@/components/ui/Buttons/StandartButton/StandartButton';
+import { ModernInput } from '@/components/ui/Fields/ModernInput/ModernInput';
 
 export const chatsData: typeChatData[] = []
 
@@ -81,7 +81,7 @@ export function Chat(): JSX.Element {
 				left={0}
 			>
 				<div className={ styles.ModalMenuMain }>
-					<Input 
+					<ModernInput 
 						type={'number'}
 						placeholder={'Enter random Number'}
 						fieldValue={inputValue}

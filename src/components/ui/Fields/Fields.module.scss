@@ -10,6 +10,16 @@
 	font-size: 17px;
 	padding-left: 10px;
 	padding-right: 40px;
+
+	&.Modern{
+		border-radius: 0;
+		border: none;
+		border-bottom: 2px solid var(--background-color);
+
+		&:focus{
+			border-bottom: 2px solid var(--primary-blue);
+		}
+	}
 }
 
 .InputBar{

@@ -1,11 +1,11 @@
 import { TwitterCloseSvg } from '@/assets/svg/TwitterSvg';
 import styles from '../Fields.module.scss'
 
-export function Input({ type, placeholder, fieldValue, maxLength, setFieldValue }: TFieldProps): JSX.Element {
+export function ModernInput({ type, placeholder, fieldValue, maxLength, setFieldValue }: TFieldProps): JSX.Element {
 	return (
 		<div className={ styles.InputBar }>
 			<input 
-				className={ styles.Field }
+				className={` ${styles.Field} ${styles.Modern} `}
 				type={type}
 				placeholder={placeholder}
 				value={fieldValue}

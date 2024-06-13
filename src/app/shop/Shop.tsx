@@ -9,6 +9,7 @@ import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { Notification } from '@/components/ui/Notification/Notification';
 import { Input } from '@/components/ui/Fields/Input/Input';
 import { StandartButton } from '@/components/ui/Buttons/StandartButton/StandartButton';
+import { ModernInput } from '@/components/ui/Fields/ModernInput/ModernInput';
 
 export function Shop(): JSX.Element {
 	const [userWallet, setUserWallet] = useLocalStorage({
@@ -88,7 +89,7 @@ export function Shop(): JSX.Element {
 				<div className={ styles.ModalMenuPromoCode }>
 					<div className={ styles.InsideMenu }>
 						<span className={ styles.ClueText }>Using Promo Codes you can get XCoins and more</span>
-						<Input
+						<ModernInput
 							type={'text'}
 							placeholder={'XXXXX-XXXXX-XXXXX'}
 							maxLength={17}
