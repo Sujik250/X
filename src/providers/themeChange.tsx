@@ -3,11 +3,9 @@
 import { TwitterIcoSvg } from '@/assets/svg/TwitterSvg'
 import { MobileMenu } from '@/components/mobileMenu/MobileMenu'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 
-export function ThemeCurrent({ children }: {
-  children: React.ReactNode
-}) {
+export function ThemeCurrent({ children }: { children: ReactNode }) {
   const [currentTheme, setCurrentTheme] = useState('dark-theme')
 
   useEffect(() => {

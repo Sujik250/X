@@ -6,7 +6,7 @@ import { StandartButton } from '@/components/ui/Buttons/StandartButton/StandartB
 
 interface ICreatePostProps {
 	textAreaValue: string;
-	userWallet: typeUserWalletData
+	userWallet: TUserWalletData
 	isModalEmojiActive: boolean
 	createNewPost: () => void
 	setTextAreaValue: React.Dispatch<React.SetStateAction<string>>;

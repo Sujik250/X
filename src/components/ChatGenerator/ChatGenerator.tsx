@@ -2,10 +2,10 @@ import { TwitterMessageDeliveredSvg, TwitterMessageNotDeliveredSvg } from '@/ass
 import styles from './ChatGenerator.module.scss'
 import Link from 'next/link'
 
-export function ChatGenerator({ chats }: typeChatGeneratorProps): JSX.Element {
+export function ChatGenerator({ chats }: {chats: TChatData[]}): JSX.Element {
 	return (
 		<>
-		{chats.map((item: typeChatData, index: number) => (
+		{chats.map((item: TChatData, index: number) => (
 			<div className={ styles.ChatBlock } key={index}>
 				<Link href={`/chat/${item.name}`}>
 					<div className={ styles.ChatInfo }>

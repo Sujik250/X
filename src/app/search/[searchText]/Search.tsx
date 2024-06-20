@@ -4,11 +4,11 @@ import styles from './Search.module.scss'
 import { useEffect, useState } from 'react';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { PostItem } from '@/components/PostItem/PostItem';
-import { typePostItem } from '@/types/PostItem';
 import { usePathname } from 'next/navigation';
 import { Input } from '@/components/ui/Fields/Input/Input';
+import { TPostItem } from '@/types/PostItem';
 
-export const postsData: typePostItem[] = [];
+export const postsData: TPostItem[] = [];
 
 export function Search(): JSX.Element {
 	const path = decodeURIComponent(usePathname())

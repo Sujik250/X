@@ -1,4 +1,4 @@
-type typeChatData = {
+type TChatData = {
 	name: string | string[];
 	messagesInfo:
 		{

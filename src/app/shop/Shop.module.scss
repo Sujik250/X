@@ -3,7 +3,10 @@
 	& .Collections{
 
 	   & .Collection{
-
+			&:last-child{
+				margin-bottom: 120px;
+			}
+			
 		   & .CollectionsInfo{
 			   display: flex;
 			   justify-content: space-between;

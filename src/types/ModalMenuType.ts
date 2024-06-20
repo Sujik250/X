@@ -1,4 +1,4 @@
-type typeModalMenuProps = {
+type IModalMenuProps = {
 	isActive: boolean,
 	setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 	children: JSX.Element;

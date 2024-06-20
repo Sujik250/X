@@ -1,6 +1,6 @@
 import styles from './TextArea.module.scss'
 
-export function TextArea({ maxLength, placeholder, fieldValue, setFieldValue }: TFieldProps): JSX.Element {
+export function TextArea({ maxLength, placeholder, fieldValue, setFieldValue }: IFieldProps): JSX.Element {
 	return (
 		<textarea 
 			spellCheck='false'

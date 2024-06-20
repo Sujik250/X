@@ -132,9 +132,9 @@ export function TwitterOtherPointsSvg(): JSX.Element {
 
 export function TwitterCloseSvg(): JSX.Element {
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
 			<g className="TwitterIcon">
-				<path d="m12.71 12 8.15 8.15-.71.71L12 12.71l-8.15 8.15-.71-.71L11.29 12 3.15 3.85l.71-.71L12 11.29l8.15-8.15.71.71L12.71 12z"></path>
+				<path d="m259-206-52-53 220-221-220-221 52-53 221 221 221-221 52 53-220 221 220 221-52 53-221-221-221 221Z"/>
 			</g>
 		</svg>
 	)

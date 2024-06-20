@@ -29,11 +29,20 @@
 
 	& .TWclearBtn{
 		position: absolute;
-		right: 12%;
-		height: 16px;
+		right: 11%;
+		height: 24px;
+		transition: 0.2s;
+		rotate: -50deg;
+		opacity: 0;
+		scale: 0.3;
+			&.visible{
+				rotate: 0deg;
+				scale: 1;
+				opacity: 1;
+			}
 
 		& svg{
-			width: 16px;
+			width: 24px;
 			fill: var(--text-color);
 		}
 	}

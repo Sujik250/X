@@ -1,4 +1,4 @@
-type TFieldProps = {
+type IFieldProps = {
 	fieldValue?: string;
 	type?: string;
 	placeholder?: string;

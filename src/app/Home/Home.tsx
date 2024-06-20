@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './Home.module.scss'
 import { PostItem } from '@/components/PostItem/PostItem'
-import { typePostItem } from '@/types/PostItem'
+import { TPostItem } from '@/types/PostItem'
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { StandartModalMenu } from '@/components/ui/ModalMenus/StandartModalMenu/StandartModalMenu';
 import { ExtraEmojiPackGenerator } from '@/components/ExtraEmojiPackGenerator/ExtraEmojiPackGenerator';
@@ -12,7 +12,7 @@ import { userWalletData } from '../shop/ReactionCollection/ReactionCollection';
 import { CreatePost } from './CreatePost/CreatePost';
 import { StandartButton } from '@/components/ui/Buttons/StandartButton/StandartButton';
 
-export const postsData: typePostItem[] = [];
+export const postsData: TPostItem[] = [];
 
 export function Home(): JSX.Element {
 	const [posts, setPosts] = useLocalStorage({
@@ -43,7 +43,7 @@ export function Home(): JSX.Element {
 		let now = new Date();
 		const textareaCurrent: string = textAreaValue;
 		if (textareaCurrent) {
-			const newPost: typePostItem = { 
+			const newPost: TPostItem = { 
 				name: 'Anonymous', 
 				date: `${now.getMonth() + 1}.${now.getDate()}.${now.getFullYear()}`, 
 				shortPostText: textareaCurrent, 
@@ -98,6 +98,7 @@ export function Home(): JSX.Element {
 				isActive={isModalEmojiActive} 
 				setIsActive={setIsModalEmojiActive}
 				top={15}
+				left={0}
 			>
 				<ExtraEmojiPackGenerator 
 					userWalletData={userWallet} 

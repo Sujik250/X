@@ -1,3 +1,0 @@
-type typeChatGeneratorProps = {
-	chats: typeChatData[]
-}

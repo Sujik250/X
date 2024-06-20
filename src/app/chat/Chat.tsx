@@ -10,7 +10,7 @@ import { TextArea } from '@/components/ui/Fields/TextArea/TextArea';
 import { StandartButton } from '@/components/ui/Buttons/StandartButton/StandartButton';
 import { ModernInput } from '@/components/ui/Fields/ModernInput/ModernInput';
 
-export const chatsData: typeChatData[] = []
+export const chatsData: TChatData[] = []
 
 export function Chat(): JSX.Element {
 	const [chats, setChats] = useLocalStorage({
@@ -47,7 +47,7 @@ export function Chat(): JSX.Element {
 				return updatedChats
 			})
 		} else {
-			const newChat: typeChatData = {
+			const newChat: TChatData = {
 				name: `Anonymous_${inputValue}`,
 				messagesInfo: [
 					{

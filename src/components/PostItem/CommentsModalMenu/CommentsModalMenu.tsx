@@ -1,14 +1,13 @@
 import { Highlight } from '@/components/Highlight/Highlight'
-import { PostItem } from '../PostItem'
 import styles from './CommentsModalMenu.module.scss'
-import { typePostItem } from '@/types/PostItem'
+import { TPostItem } from '@/types/PostItem'
 import { TwitterSendSvg } from '@/assets/svg/TwitterSvg'
 import { TextArea } from '@/components/ui/Fields/TextArea/TextArea'
 import { useState } from 'react'
 
 interface ICommentsModalMenuProps {
-	post: typePostItem
-	setPosts: React.Dispatch<React.SetStateAction<typePostItem[]>>
+	post: TPostItem
+	setPosts: React.Dispatch<React.SetStateAction<TPostItem[]>>
 }
 
 export function CommentsModalMenu({ post, setPosts }: ICommentsModalMenuProps): JSX.Element {
@@ -71,14 +70,12 @@ export function CommentsModalMenu({ post, setPosts }: ICommentsModalMenuProps): 
 				fieldValue={commentValue}
 				setFieldValue={setCommentValue}
 			/>
-			{ commentValue.length > 0 && (
-				<div 
-					className={ styles.SendButton } 
-					onClick={() => createNewComment()}
-				>
-					<TwitterSendSvg/>
-				</div>
-			) }
+			<div 
+				className={`${ styles.SendButton } ${ commentValue.length > 0 ? styles.visible : '' }`}
+				onClick={() => createNewComment()}
+			>
+				<TwitterSendSvg/>
+			</div>
 		</div>
 		</>
 	)

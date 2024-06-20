@@ -64,7 +64,7 @@ export function ChatMenu(): JSX.Element {
 	return (
 		<>
 		{ (chats.filter((e) => e.name === params.UserName))
-		.map((item: typeChatData, index) => (
+		.map((item: TChatData, index) => (
 			<div className={ styles.MainSection } key={index}>
 				<div className={ styles.ChatHeader } key={index}>
 					<div className={ styles.BackButton } onClick={() => router.back()}>
@@ -98,13 +98,15 @@ export function ChatMenu(): JSX.Element {
 						fieldValue={textAreaValue}
 						setFieldValue={setTextAreaValue}
 					/>
-					{ textAreaValue.length > 0 
-					? <div className={ styles.SendButton } onClick={() => { 
-						sendMessage()
-						setTextAreaValue('')
-					}}>
+					<div 
+						className={`${ styles.SendButton } ${ textAreaValue.length > 0 ? styles.visible : '' }`}
+						onClick={() => { 
+							sendMessage()
+							setTextAreaValue('')
+						}}
+					>
 						<TwitterSendSvg/>
-					</div> : '' }
+					</div> 
 				</div>
 			</div>
 		)) }

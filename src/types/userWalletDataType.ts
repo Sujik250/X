@@ -1,9 +1,9 @@
-type typeUserWalletData = {
+type TUserWalletData = {
 	wallet: number,
-	productsPurchased: typeProductsPurchased[],
+	productsPurchased: TProductsPurchased[],
 }
 
-type typeProductsPurchased = {
+type TProductsPurchased = {
 	productID: number,
 	productItemSelectedID: boolean[],
 }

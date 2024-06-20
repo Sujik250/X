@@ -1,3 +1,9 @@
+type TPromoCodes = {
+	code: string,
+	coins: number,
+	maxUsage?: number | 'inf',
+}
+
 export const PROMOCODES: TPromoCodes[] = [
 	{
 		code: '0GIVE-AMILL-IONXC',

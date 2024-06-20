@@ -1,4 +1,4 @@
-export type typePostItem = {
+export type TPostItem = {
 	name: string;
 	date: string;
 	shortPostText: string;
@@ -7,20 +7,14 @@ export type typePostItem = {
 		likeCount: number; 
 	};
 	reactionInfo: {
-		usedReactions: typeReactionData[],
+		usedReactions: TReactionData[],
 		usedReactionPacks: string[],
 	};
-	comments: Omit<typePostItem, 'comments' | 'reactionInfo' | 'likeInfo'>[]
+	comments: Omit<TPostItem, 'comments' | 'reactionInfo' | 'likeInfo'>[]
 	id: string;
 }
 
-export type typePropsPostItem = {
-	posts: typePostItem[];
-	setPosts: React.Dispatch<React.SetStateAction<typePostItem[]>>
-	searchValue: string;
-}
-
-export type typeReactionData = {
+export type TReactionData = {
 	reaction: string;
 	count: number;
 	selected: boolean;

@@ -1,6 +1,6 @@
 // 1 Эмодзи Стоит 2 XCoin
 
-export const REACTIONPRODUCTS: typeReactinData[] = [
+export const REACTIONPRODUCTS: TReactinData[] = [
 	{
 		preview: '/HeartPack.png',
 		name: 'Heart Pack',
@@ -10,7 +10,7 @@ export const REACTIONPRODUCTS: typeReactinData[] = [
 			price: 8,
 			discount: 0,
 		},
-		id: crypto.randomUUID(),
+		id: 1,
 	},
 	{
 		preview: '/MeowPack.png',
@@ -21,7 +21,7 @@ export const REACTIONPRODUCTS: typeReactinData[] = [
 			price: 10,
 			discount: 0,
 		},
-		id: crypto.randomUUID(),
+		id: 2,
 	},
 	{
 		preview: '/HalloweenPack.png',
@@ -32,7 +32,7 @@ export const REACTIONPRODUCTS: typeReactinData[] = [
 			price: 8,
 			discount: 0,
 		},
-		id: crypto.randomUUID(),
+		id: 3,
 	},
 	{
 		preview: '/Vibe2024Pack.png',
@@ -43,7 +43,7 @@ export const REACTIONPRODUCTS: typeReactinData[] = [
 			price: 12,
 			discount: 0,
 		},
-		id: crypto.randomUUID(),
+		id: 4,
 	},
 	{
 		preview: '/ScopoPhobiaPack.png',
@@ -54,7 +54,7 @@ export const REACTIONPRODUCTS: typeReactinData[] = [
 			price: 8,
 			discount: 0,
 		},
-		id: crypto.randomUUID(),
+		id: 5,
 	},
 
 	// {
@@ -66,6 +66,6 @@ export const REACTIONPRODUCTS: typeReactinData[] = [
 	// 		price: 0,
 	// 		discount: 0,
 	// 	},
-	// 	id: crypto.randomUUID(),
+	// 	id: 0,
 	// },
 ]

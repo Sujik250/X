@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { StandartButton } from '../ui/Buttons/StandartButton/StandartButton';
 
 interface IExtraEmojiPackGeneratorProps {
-	userWalletData: typeUserWalletData;
-	setUserWalletData: React.Dispatch<React.SetStateAction<typeUserWalletData>>;
+	userWalletData: TUserWalletData;
+	setUserWalletData: React.Dispatch<React.SetStateAction<TUserWalletData>>;
 	setExtraEmojis: React.Dispatch<React.SetStateAction<string[]>>
 	setIsModalEmojiActive: React.Dispatch<React.SetStateAction<boolean>>
 	setIsNotificationEmojiActive: React.Dispatch<React.SetStateAction<boolean>>

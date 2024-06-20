@@ -1,7 +1,6 @@
 'use client'
 
 import styles from './PostItem.module.scss'
-import { typePropsPostItem, typeReactionData } from '@/types/PostItem'
 import { TwitterLikeSvg, TwitterFillLikeSvg, TwitterOtherPointsSvg, TwitterCommentSvg } from '@/assets/svg/TwitterSvg'
 import { useState } from 'react';
 import { StandartModalMenu } from '../ui/ModalMenus/StandartModalMenu/StandartModalMenu';
@@ -9,10 +8,17 @@ import { Highlight } from '../Highlight/Highlight';
 import { PopupModalMenu } from '../ui/ModalMenus/PopupModalMenu/PopupModalMenu';
 import { CommentsModalMenu } from './CommentsModalMenu/CommentsModalMenu';
 import { useAbbreviateNumber } from '@/hooks/useAbbreviateNumber';
+import { TPostItem } from '@/types/PostItem';
 
 const reactionArr: string[] = ["👍", "👎", "😈", "♥️", "💋", "🔥", "💩", "🤡", "🤨", "😐", "🤓", "💔", "💀", "😭"]
 
-export function PostItem({ searchValue = '', posts, setPosts }: typePropsPostItem): JSX.Element {
+interface IPostItemProps {
+    posts: TPostItem[];
+    setPosts: React.Dispatch<React.SetStateAction<TPostItem[]>>;
+    searchValue: string;
+}
+
+export function PostItem({ searchValue = '', posts, setPosts }: IPostItemProps): JSX.Element {
 	const [isModalActive, setIsModalActive] = useState<boolean[]>(Array(posts.length).fill(false));
 	const [isModalCommetsActive, setisModalCommetsActive] = useState<boolean[]>(Array(posts.length).fill(false));
 
@@ -61,7 +67,7 @@ export function PostItem({ searchValue = '', posts, setPosts }: typePropsPostIte
 		if(!copy[index].reactionInfo.usedReactions) {
 			copy[index].reactionInfo.usedReactions = [{ reaction: value, count: 1, selected: false }];
 		} else{
-			const reactionIndex = copy[index].reactionInfo.usedReactions.findIndex((elem: typeReactionData) => elem?.reaction === value);
+			const reactionIndex = copy[index].reactionInfo.usedReactions.findIndex(elem => elem?.reaction === value);
 			if (reactionIndex !== -1) {
 				copy[index].reactionInfo.usedReactions.splice(reactionIndex, 1);
 			} else {
@@ -93,14 +99,14 @@ export function PostItem({ searchValue = '', posts, setPosts }: typePropsPostIte
 							</div>
 							<div className={styles.TWpostItemFooter}>
 								<button 
-									className={`${styles.LikeBtn} ${item.likeInfo.isLike ? styles.isLike : ''}`}
+									className={`${styles.PostFunctionBtn} ${item.likeInfo.isLike ? styles.isLike : ''}`}
 									onClick={() => liked(item.id)}
 								>
 									{item.likeInfo.isLike ? <TwitterFillLikeSvg /> : <TwitterLikeSvg />}
 									<span className={styles.TWpostItemCount}>{useAbbreviateNumber(item.likeInfo.likeCount)}</span>
 								</button>
 								<button 
-									className={ styles.CommentsBtn }
+									className={ styles.PostFunctionBtn }
 									onClick={() => toggleIsModalCommentActive(index)}
 								>
 									<TwitterCommentSvg />
@@ -108,7 +114,7 @@ export function PostItem({ searchValue = '', posts, setPosts }: typePropsPostIte
 								</button>
 							</div>
 							<div className={styles.ReactionSection}>
-								{item.reactionInfo.usedReactions.map((elemnt: typeReactionData, includeIndex) => (
+								{item.reactionInfo.usedReactions.map((elemnt, includeIndex) => (
 									<span
 										onClick={() => { setReaction(index, elemnt?.reaction) }}
 										data-selected={elemnt?.selected ? 'true' : 'false'}
@@ -120,8 +126,13 @@ export function PostItem({ searchValue = '', posts, setPosts }: typePropsPostIte
 								))}
 							</div>
 						</div>
-						<div className={styles.TWOtherMenu} onClick={() => toggleIsModalActive(index)}>
-							<TwitterOtherPointsSvg />
+						<div 
+							className={styles.TWOtherMenu} 
+							onClick={() => toggleIsModalActive(index)}
+						>
+							<button className={ styles.PostFunctionBtn }>
+								<TwitterOtherPointsSvg />
+							</button>
 						</div>
 						{ isModalCommetsActive[index] && (
 							<PopupModalMenu

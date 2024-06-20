@@ -2,15 +2,20 @@ import { REACTIONPRODUCTS } from '@/data/ReactionCollection'
 import styles from './ReactionCollection.module.scss'
 import { useState } from 'react';
 import { ProductBuyMenu } from './ProductBuyMenu/ProductBuyMenu';
-import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { Notification } from '@/components/ui/Notification/Notification';
 
-export const userWalletData: typeUserWalletData = {
+export const userWalletData: TUserWalletData = {
 	wallet: 0,
 	productsPurchased: [],
 }
 
-export function ReactionCollection({ userWallet, setUserWallet, searchValue }: typeCollectionProps): JSX.Element {
+interface IReactionCollectionProps {
+	searchValue: string;
+	userWallet: TUserWalletData
+	setUserWallet: React.Dispatch<React.SetStateAction<TUserWalletData>>
+}
+
+export function ReactionCollection({ userWallet, setUserWallet, searchValue }: IReactionCollectionProps): JSX.Element {
 
 	const [isModalActive, setIsModalActive] = useState<boolean[]>(Array(REACTIONPRODUCTS.length).fill(false));
 	const [isNotificationActive, setIsNotificationActive] = useState(false);
@@ -56,11 +61,11 @@ export function ReactionCollection({ userWallet, setUserWallet, searchValue }: t
 			{REACTIONPRODUCTS.reduce((acc: JSX.Element[], item, index) => {
 				if (item.name.toLowerCase().includes(searchValue.toLowerCase())) {
 					acc.push(
-						<div key={index} className={styles.ProductBlock} onClick={() => toggleIsModalActive(index)}>
+						<div key={item.id} className={styles.ProductBlock} onClick={() => toggleIsModalActive(index)}>
 							<img src={item.preview} alt={item.name} />
 							<div className={styles.ProductInfo}>
 								<span className={styles.ProductName}>{item.name}</span>
-								{userWallet.productsPurchased.some((product) => product.productID === item.id)
+								{userWallet.productsPurchased.some(product => product.productID === item.id)
 									? <span className={styles.AddedBlock}>Added</span>
 									: (
 										<>

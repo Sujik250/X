@@ -1,6 +1,12 @@
 import Link from "next/link";
 
-export function Highlight({ text, searchHighlight, hashTagHighlight }: typeHighlightProps) {
+interface IHighlightProps {
+    text: string;
+    searchHighlight: string;
+    hashTagHighlight: string;
+}
+
+export function Highlight({ text, searchHighlight, hashTagHighlight }: IHighlightProps) {
 	if (!searchHighlight.trim() && hashTagHighlight) {
 	  const hashTagRegex = /(#\S+)/g;
 	  const parts = text.split(hashTagRegex);

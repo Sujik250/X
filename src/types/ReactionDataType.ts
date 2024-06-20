@@ -1,4 +1,4 @@
-type typeReactinData = {
+type TReactinData = {
 	preview: string;
 	name: string;
 	category: string;
@@ -7,5 +7,5 @@ type typeReactinData = {
 		price: number,
 		discount: number,
 	},
-	id: string;
+	id: number;
 }

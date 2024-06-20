@@ -4,7 +4,14 @@ import { TwitterCloseSvg, TwitterMessageNotDeliveredSvg } from '@/assets/svg/Twi
 import { useAbbreviateNumber } from '@/hooks/useAbbreviateNumber'
 import { StandartButton } from '@/components/ui/Buttons/StandartButton/StandartButton'
 
-export function ProductBuyMenu({ index, toggleIsModalActive, buyProduct, userWalletData }: typeProductBuyMenuProps): JSX.Element {
+interface IProductBuyMenuProps {
+    index: number;
+    toggleIsModalActive: (index: number) => void;
+    buyProduct: (index: number) => void;
+    userWalletData: TUserWalletData;
+}
+
+export function ProductBuyMenu({ index, toggleIsModalActive, buyProduct, userWalletData }: IProductBuyMenuProps): JSX.Element {
 	return (
 		<div className={ styles.BuyModalMenu } onClick={(e) => e.stopPropagation()}>
 			<div className={ styles.Header }>
