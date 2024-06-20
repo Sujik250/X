@@ -8,6 +8,7 @@ import { StandartModalMenu } from '../ui/ModalMenus/StandartModalMenu/StandartMo
 import { Highlight } from '../Highlight/Highlight';
 import { PopupModalMenu } from '../ui/ModalMenus/PopupModalMenu/PopupModalMenu';
 import { CommentsModalMenu } from './CommentsModalMenu/CommentsModalMenu';
+import { useAbbreviateNumber } from '@/hooks/useAbbreviateNumber';
 
 const reactionArr: string[] = ["👍", "👎", "😈", "♥️", "💋", "🔥", "💩", "🤡", "🤨", "😐", "🤓", "💔", "💀", "😭"]
 
@@ -24,7 +25,22 @@ export function PostItem({ searchValue = '', posts, setPosts }: typePropsPostIte
 	const toggleIsModalCommentActive = (index: number) => {
         const copy = [...isModalCommetsActive];
         copy[index] = !copy[index];
-        setisModalCommetsActive(copy);
+        if (!posts[index].comments) {
+			setPosts(prevPosts => {
+				const updatedPosts = prevPosts.map(item => {
+					if (item.id === posts[index].id) {
+						return {
+							...item,
+							comments: [],
+						};
+					}
+					return item;
+				});
+				return updatedPosts;
+			});
+		} else {
+			setisModalCommetsActive(copy);
+		}
     }
 
 	const liked = (id: string): void => {
@@ -81,14 +97,14 @@ export function PostItem({ searchValue = '', posts, setPosts }: typePropsPostIte
 									onClick={() => liked(item.id)}
 								>
 									{item.likeInfo.isLike ? <TwitterFillLikeSvg /> : <TwitterLikeSvg />}
-									<span className={styles.TWpostItemCount}>{item.likeInfo.likeCount}</span>
+									<span className={styles.TWpostItemCount}>{useAbbreviateNumber(item.likeInfo.likeCount)}</span>
 								</button>
 								<button 
 									className={ styles.CommentsBtn }
 									onClick={() => toggleIsModalCommentActive(index)}
 								>
 									<TwitterCommentSvg />
-									<span className={styles.TWpostItemCount}>{item.comments?.length}</span>
+									<span className={styles.TWpostItemCount}>{useAbbreviateNumber(item.comments?.length)}</span>
 								</button>
 							</div>
 							<div className={styles.ReactionSection}>
