@@ -34,6 +34,9 @@
 		& textarea{
 			border-radius: 5px;
 			height: 40px;
+			width: 80%;
+			border: 1px solid var(--primary-blue);
+			padding: 5px 10px;
 		}
 		
 		& .Clue{

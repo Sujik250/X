@@ -93,6 +93,7 @@ export function ChatMenu(): JSX.Element {
 				</div>
 				<div className={ styles.CreateMessage }>
 					<TextArea
+						maxLength={500}
 						placeholder={'Message'}
 						fieldValue={textAreaValue}
 						setFieldValue={setTextAreaValue}

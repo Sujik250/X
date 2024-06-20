@@ -5,6 +5,7 @@ export function Input({ type, placeholder, fieldValue, maxLength, setFieldValue 
 	return (
 		<div className={ styles.InputBar }>
 			<input 
+				spellCheck='false'
 				className={ styles.Field }
 				type={type}
 				placeholder={placeholder}

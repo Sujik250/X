@@ -89,28 +89,14 @@
 	justify-content: center;
 	position: fixed;
 	width: 100%;
-	bottom: 12%;
-
-	& textarea{
-		width: 80%;
-		padding-right: 10%;
-		max-height: 100px;
-        background-color: var(--primary-black);
-        border: 2px solid var(--primary-blue);
-        border-radius: 15px;
-        outline: none;
-        color: var(--text-color);
-		padding-left: 10px;
-		font-size: 16px;
-	}
+	bottom: 68px;
 
 	& .SendButton{
 		position: absolute;
-		right: 4%;
+		right: 2%;
 
 		& svg{
 			fill: var(--primary-blue);
 		}
 	}
-
 }

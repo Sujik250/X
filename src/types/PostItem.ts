@@ -1,6 +1,5 @@
 export type typePostItem = {
 	name: string;
-	userImg?: string;
 	date: string;
 	shortPostText: string;
 	likeInfo: {
@@ -11,12 +10,13 @@ export type typePostItem = {
 		usedReactions: typeReactionData[],
 		usedReactionPacks: string[],
 	};
-	id: number;
+	comments: Omit<typePostItem, 'comments' | 'reactionInfo' | 'likeInfo'>[]
+	id: string;
 }
 
 export type typePropsPostItem = {
 	posts: typePostItem[];
-	setPosts: (posts: typePostItem[]) => void;
+	setPosts: React.Dispatch<React.SetStateAction<typePostItem[]>>
 	searchValue: string;
 }
 

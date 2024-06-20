@@ -5,9 +5,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-			&:last-child{
-				margin-bottom: 100px;
-			}
 			&:first-child{
 				border-top: none;
 			}
@@ -76,7 +73,24 @@
 			& .TWpostItemFooter{
 				display: flex;
 				align-items: center;
+				justify-content: space-between;
 	
+				& .LikeBtn{
+					
+					&.isLike{
+						
+						& svg{
+							fill: #fe2b54;
+						}
+					}
+
+				}
+				& .TWpostItemCount{
+					margin-left: 5px;
+					color: var(--primary-white);
+					font-size: 20px;
+				}
+
 				& button{
 					display: flex;
 					align-items: center;
@@ -88,12 +102,6 @@
 					& svg{
 						fill: var(--primary-white);
 						width: 28px;
-					}
-
-					& .TWpostItemLikeCount{
-						margin-left: 5px;
-						color: var(--primary-white);
-						font-size: 20px;
 					}
 				}
 			}

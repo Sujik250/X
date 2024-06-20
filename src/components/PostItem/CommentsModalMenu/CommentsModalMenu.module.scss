@@ -1,0 +1,72 @@
+.CommentList{
+	height: 85%;
+	overflow-y: auto;
+
+	& .CommentListItem{
+		border-top: 1px solid var(--background-color);
+		padding: 10px 0;
+		display: flex;
+		align-items: center;
+		font-size: 15px;
+			&:first-child{
+				border-top: none;
+			}
+		
+		& img{
+			margin-left: 5%;
+			border-radius: 50%;
+			width: 42px;
+			height: 42px;
+			margin-right: 20px;
+		}
+	
+		& .CommentItemInfo{
+			width: 50%;
+			margin-right: 5%;
+	
+			& .CommentItemHeader{
+				margin-bottom: 5px;
+	
+				& .CommentItemName{
+					margin-right: 5px;
+					color: var(--primary-blue);
+				}
+	
+				& .CommentItemDate{
+					color: var(--primary-gray);
+					font-size: 14px;
+				}
+			}
+	
+			& .CommentItemMain{
+				margin-bottom: 5px;				
+				& span{
+					display: block;
+					overflow-wrap: break-word;
+				}
+			}
+		}
+	}
+}
+
+.CreateMessage{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	width: 100%;
+	bottom: 15%;
+
+	& textarea{
+		width: 100%;
+	}
+
+	& .SendButton{
+		position: absolute;
+		right: 2%;
+
+		& svg{
+			fill: var(--primary-blue);
+		}
+	}
+}

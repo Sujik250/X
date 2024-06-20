@@ -2,15 +2,18 @@
 
 import styles from './PostItem.module.scss'
 import { typePropsPostItem, typeReactionData } from '@/types/PostItem'
-import { TwitterLikeSvg, TwitterFillLikeSvg, TwitterOtherPointsSvg } from '@/assets/svg/TwitterSvg'
+import { TwitterLikeSvg, TwitterFillLikeSvg, TwitterOtherPointsSvg, TwitterCommentSvg } from '@/assets/svg/TwitterSvg'
 import { useState } from 'react';
 import { StandartModalMenu } from '../ui/ModalMenus/StandartModalMenu/StandartModalMenu';
 import { Highlight } from '../Highlight/Highlight';
+import { PopupModalMenu } from '../ui/ModalMenus/PopupModalMenu/PopupModalMenu';
+import { CommentsModalMenu } from './CommentsModalMenu/CommentsModalMenu';
 
 const reactionArr: string[] = ["👍", "👎", "😈", "♥️", "💋", "🔥", "💩", "🤡", "🤨", "😐", "🤓", "💔", "💀", "😭"]
 
 export function PostItem({ searchValue = '', posts, setPosts }: typePropsPostItem): JSX.Element {
 	const [isModalActive, setIsModalActive] = useState<boolean[]>(Array(posts.length).fill(false));
+	const [isModalCommetsActive, setisModalCommetsActive] = useState<boolean[]>(Array(posts.length).fill(false));
 
 	const toggleIsModalActive = (index: number) => {
         const copy = [...isModalActive];
@@ -18,7 +21,13 @@ export function PostItem({ searchValue = '', posts, setPosts }: typePropsPostIte
         setIsModalActive(copy);
     }
 
-	const liked = (id: number): void => {
+	const toggleIsModalCommentActive = (index: number) => {
+        const copy = [...isModalCommetsActive];
+        copy[index] = !copy[index];
+        setisModalCommetsActive(copy);
+    }
+
+	const liked = (id: string): void => {
 		const copy = [...posts];
 		const currentPosts = copy.find(elem => elem.id === id);
 		if (currentPosts) {
@@ -67,9 +76,19 @@ export function PostItem({ searchValue = '', posts, setPosts }: typePropsPostIte
 								/>
 							</div>
 							<div className={styles.TWpostItemFooter}>
-								<button onClick={() => liked(item.id)}>
+								<button 
+									className={`${styles.LikeBtn} ${item.likeInfo.isLike ? styles.isLike : ''}`}
+									onClick={() => liked(item.id)}
+								>
 									{item.likeInfo.isLike ? <TwitterFillLikeSvg /> : <TwitterLikeSvg />}
-									<span className={styles.TWpostItemLikeCount}>{item.likeInfo.likeCount}</span>
+									<span className={styles.TWpostItemCount}>{item.likeInfo.likeCount}</span>
+								</button>
+								<button 
+									className={ styles.CommentsBtn }
+									onClick={() => toggleIsModalCommentActive(index)}
+								>
+									<TwitterCommentSvg />
+									<span className={styles.TWpostItemCount}>{item.comments?.length}</span>
 								</button>
 							</div>
 							<div className={styles.ReactionSection}>
@@ -88,6 +107,17 @@ export function PostItem({ searchValue = '', posts, setPosts }: typePropsPostIte
 						<div className={styles.TWOtherMenu} onClick={() => toggleIsModalActive(index)}>
 							<TwitterOtherPointsSvg />
 						</div>
+						{ isModalCommetsActive[index] && (
+							<PopupModalMenu
+								isActive={isModalCommetsActive[index]}
+								setIsActive={() => toggleIsModalCommentActive(index)}
+							>
+								<CommentsModalMenu
+									post={posts[index]}
+									setPosts={setPosts}
+								/>
+							</PopupModalMenu>
+						)}
 						{ isModalActive[index] && (
 							<StandartModalMenu 
 								isActive={isModalActive[index]} 

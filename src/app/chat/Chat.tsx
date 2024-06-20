@@ -66,7 +66,9 @@ export function Chat(): JSX.Element {
 
 	return (
 		<>
-		<ChatGenerator chats={chats}/>
+		<div className={ styles.Chats }>
+			<ChatGenerator chats={chats}/>
+		</div>
 		<div className={ styles.AddNewChat }>
 			<StandartButton
 				text={<TwitterAddPostSvg/>}
@@ -83,12 +85,13 @@ export function Chat(): JSX.Element {
 				<div className={ styles.ModalMenuMain }>
 					<ModernInput 
 						type={'number'}
-						placeholder={'Enter random Number'}
+						placeholder={'Enter User Number'}
 						fieldValue={inputValue}
 						setFieldValue={setInputValue}
 					/>
 					<div className={ styles.extraBlock }>
 						<TextArea
+							maxLength={500}
 							fieldValue={textAreaValue}
 							placeholder={'Enter Message'}
 							setFieldValue={setTextAreaValue}

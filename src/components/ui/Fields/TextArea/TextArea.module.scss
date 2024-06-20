@@ -1,0 +1,13 @@
+.Field{
+	color: var(--text-color);
+	outline: none;
+	font-size: 16px;
+	padding: 5px 10px;
+	padding-right: 40px;
+	width: 100%;
+	border-top: 2px solid var(--background-color);
+	border-bottom: none;
+	border-right: none;
+	border-left: none;
+	background-color: var(--primary-black);
+}

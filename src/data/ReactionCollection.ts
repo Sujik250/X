@@ -10,7 +10,7 @@ export const REACTIONPRODUCTS: typeReactinData[] = [
 			price: 8,
 			discount: 0,
 		},
-		id: 1,
+		id: crypto.randomUUID(),
 	},
 	{
 		preview: '/MeowPack.png',
@@ -21,7 +21,7 @@ export const REACTIONPRODUCTS: typeReactinData[] = [
 			price: 10,
 			discount: 0,
 		},
-		id: 2,
+		id: crypto.randomUUID(),
 	},
 	{
 		preview: '/HalloweenPack.png',
@@ -32,7 +32,7 @@ export const REACTIONPRODUCTS: typeReactinData[] = [
 			price: 8,
 			discount: 0,
 		},
-		id: 3,
+		id: crypto.randomUUID(),
 	},
 	{
 		preview: '/Vibe2024Pack.png',
@@ -43,7 +43,7 @@ export const REACTIONPRODUCTS: typeReactinData[] = [
 			price: 12,
 			discount: 0,
 		},
-		id: 4,
+		id: crypto.randomUUID(),
 	},
 	{
 		preview: '/ScopoPhobiaPack.png',
@@ -54,7 +54,7 @@ export const REACTIONPRODUCTS: typeReactinData[] = [
 			price: 8,
 			discount: 0,
 		},
-		id: 5,
+		id: crypto.randomUUID(),
 	},
 
 	// {
@@ -66,6 +66,6 @@ export const REACTIONPRODUCTS: typeReactinData[] = [
 	// 		price: 0,
 	// 		discount: 0,
 	// 	},
-	// 	id: 0,
+	// 	id: crypto.randomUUID(),
 	// },
 ]

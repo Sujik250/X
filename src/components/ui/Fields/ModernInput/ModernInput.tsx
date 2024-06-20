@@ -5,6 +5,7 @@ export function ModernInput({ type, placeholder, fieldValue, maxLength, setField
 	return (
 		<div className={ styles.InputBar }>
 			<input 
+				spellCheck='false'
 				className={` ${styles.Field} ${styles.Modern} `}
 				type={type}
 				placeholder={placeholder}

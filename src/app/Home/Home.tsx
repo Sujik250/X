@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './Home.module.scss'
 import { PostItem } from '@/components/PostItem/PostItem'
-import { typePostItem, typeReactionData } from '@/types/PostItem'
+import { typePostItem } from '@/types/PostItem'
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { StandartModalMenu } from '@/components/ui/ModalMenus/StandartModalMenu/StandartModalMenu';
 import { ExtraEmojiPackGenerator } from '@/components/ExtraEmojiPackGenerator/ExtraEmojiPackGenerator';
@@ -55,7 +55,8 @@ export function Home(): JSX.Element {
 					usedReactions: [],
 					usedReactionPacks: extraEmojis,
 				},
-				id: Math.floor(Math.random() * 999999999999999999999)
+				comments: [],
+				id: crypto.randomUUID()
 			}
 			setPosts(prevPosts => [newPost, ...prevPosts]);
 			setIsCreatePostMenu(false);
@@ -65,7 +66,6 @@ export function Home(): JSX.Element {
 
 	return (
 		<>
-		{/* <button onClick={() => localStorage.clear()}>clear</button> */}
 		{ 
 			!isCreatePostMenu ? 
 			<>

@@ -7,5 +7,5 @@ type typeReactinData = {
 		price: number,
 		discount: number,
 	},
-	id: number;
+	id: string;
 }
