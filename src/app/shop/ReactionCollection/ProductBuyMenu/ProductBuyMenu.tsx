@@ -3,6 +3,7 @@ import styles from './ProductBuyMenu.module.scss'
 import { TwitterCloseSvg, TwitterMessageNotDeliveredSvg } from '@/assets/svg/TwitterSvg'
 import { useAbbreviateNumber } from '@/hooks/useAbbreviateNumber'
 import { StandartButton } from '@/components/ui/Buttons/StandartButton/StandartButton'
+import { useEffect, useState } from 'react'
 
 interface IProductBuyMenuProps {
     index: number;
@@ -12,11 +13,24 @@ interface IProductBuyMenuProps {
 }
 
 export function ProductBuyMenu({ index, toggleIsModalActive, buyProduct, userWalletData }: IProductBuyMenuProps): JSX.Element {
+	const [isVisibleBuyMenu, setisVisibleBuyMenu] = useState(false);
+	
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setisVisibleBuyMenu(!isVisibleBuyMenu);
+		  }, 0);
+	  
+		  return () => clearTimeout(timer);
+	}, []);
+	
 	return (
-		<div className={ styles.BuyModalMenu } onClick={(e) => e.stopPropagation()}>
+		<div className={`${ styles.BuyModalMenu } ${ isVisibleBuyMenu ? styles.visible : '' }`} onClick={(e) => e.stopPropagation()}>
 			<div className={ styles.Header }>
 				<div className={ styles.HeaderInfo }>
-					<div onClick={() => toggleIsModalActive(index)}>
+					<div onClick={() => {
+						setisVisibleBuyMenu(!isVisibleBuyMenu)
+						setTimeout(() => toggleIsModalActive(index), 100)
+					}}>
 						<TwitterCloseSvg />
 					</div>
 					<span className={ styles.ProductCategory }>{REACTIONPRODUCTS[index].category}</span>

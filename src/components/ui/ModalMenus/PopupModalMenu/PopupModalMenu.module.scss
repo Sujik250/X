@@ -4,11 +4,13 @@
 	position: absolute;
 	width: 100vw;
 	z-index: 6;
+
 	transition: .2s;
 	opacity: 0;
 		&.visible{
 			opacity: 1;
 		}
+
 		&::before{
 			content: "";
 			position: fixed;
@@ -29,6 +31,7 @@
 		border-top: 2px solid var(--background-color);
 		border-top-left-radius: 10px;
 		border-top-right-radius: 10px;
+		
 		transition: 0.2s;
 			&.visible{
 				bottom: 0;

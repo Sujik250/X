@@ -53,10 +53,12 @@
 			border: none;
 			margin: 0;
 			padding: 0;
+			
 			transition: 0.1s;
 				&.isLike{
-							
+					
 					& svg{
+						filter: drop-shadow( 0px 2.5px rgba(254, 43, 84, .4));
 						fill: #fe2b54;
 					}
 				}

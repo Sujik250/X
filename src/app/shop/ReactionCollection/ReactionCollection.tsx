@@ -16,7 +16,6 @@ interface IReactionCollectionProps {
 }
 
 export function ReactionCollection({ userWallet, setUserWallet, searchValue }: IReactionCollectionProps): JSX.Element {
-
 	const [isModalActive, setIsModalActive] = useState<boolean[]>(Array(REACTIONPRODUCTS.length).fill(false));
 	const [isNotificationActive, setIsNotificationActive] = useState(false);
 

@@ -3,11 +3,14 @@
 	justify-content: center;
 	position: absolute;
 	width: 100vw;
+	z-index: 6;
+
 	opacity: 0;
 	transition: .15s;
 		&.visible {
 			opacity: 1;
 		 }
+
 	&::before{
 		content: "";
 		position: fixed;
@@ -15,16 +18,15 @@
 		width: 100vw;
 		height: 100vh;
 		background-color: rgba(0, 0, 0, 0.46);
-		z-index: 6;
 	}
 	
 	& .ModalMenu{
 		position: absolute;
 		right: 0;
-		z-index: 6;
 		background-color: var(--primary-black);
 		border: 2px solid var(--primary-blue);
 		border-radius: 10px;
+		
 		scale: 0.5;
 		transition: .15s;
 			&.visible {

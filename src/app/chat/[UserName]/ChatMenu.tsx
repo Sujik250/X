@@ -15,9 +15,19 @@ export function ChatMenu(): JSX.Element {
         defaultValue: chatsData,
     });
 
+	const [isVisibleChatMenu, setisVisibleChatMenu] = useState(false);
+
 	const params = useParams()
 	const router = useRouter()
 	const [textAreaValue, setTextAreaValue] = useState('');
+
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setisVisibleChatMenu(true);
+		}, 50);
+	  
+		  return () => clearTimeout(timer);
+	}, []);
 
 	useEffect(() => {
 		setChats(prevChats => {
@@ -65,9 +75,15 @@ export function ChatMenu(): JSX.Element {
 		<>
 		{ (chats.filter((e) => e.name === params.UserName))
 		.map((item: TChatData, index) => (
-			<div className={ styles.MainSection } key={index}>
+			<div className={`${ styles.MainSection } ${ isVisibleChatMenu ? styles.visible : '' }`} key={index}>
 				<div className={ styles.ChatHeader } key={index}>
-					<div className={ styles.BackButton } onClick={() => router.back()}>
+					<div 
+						className={ styles.BackButton } 
+						onClick={() => {
+							setisVisibleChatMenu(false)
+							setTimeout(() => router.back(), 100)	
+						}}
+					>
 						<TwitterBackSvg />
 					</div>
 					<img src='https://merriam-webster.com/assets/mw/images/article/art-wap-article-main/egg-3442-e1f6463624338504cd021bf23aef8441@1x.jpg' alt={item.name as string} />

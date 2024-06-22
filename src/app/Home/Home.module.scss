@@ -1,9 +1,34 @@
-.TWcreatePostBtn{
-	position: fixed;
-	bottom: 75px;
-	right: 5px;
+.PostsBox{
 
-	& button{
-		padding: 10px 15px;
+	& .TWcreatePostBtn{
+		position: fixed;
+		bottom: 75px;
+		right: 5px;
+	
+		& button{
+			padding: 10px 15px;
+		}
+	}
+}
+
+
+.CreatePost{
+	position: fixed;
+	top: 52px;
+	width: 100vw;
+
+	transition: .06s;
+	transform: translateX(100%);
+	&.visible{
+		transform: translateX(0);
+	}
+	
+	&::before{
+		content: '';
+		position: fixed;
+		background-color: var(--primary-black);
+		height: 100vh;
+		width: 100vw;
+		z-index: -1;
 	}
 }

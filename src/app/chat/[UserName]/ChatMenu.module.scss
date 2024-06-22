@@ -1,3 +1,15 @@
+.MainSection{
+	position: fixed;
+	height: 90vh;
+	width: 100vw;
+	
+	transition: .06s;
+	transform: translateX(120%);
+	&.visible{
+		transform: translateX(0);
+	}
+}
+
 .ChatHeader{
 	background-color: var(--primary-black);
 	width: 100%;

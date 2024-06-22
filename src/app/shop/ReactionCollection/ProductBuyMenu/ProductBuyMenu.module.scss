@@ -25,6 +25,13 @@
 	height: 85vh;
 	z-index: 5;
 	background-color: var(--primary-black);
+
+	transition: .06s;
+	transform: translateX(100%);
+	&.visible{
+		transform: translateX(0);
+	}
+	
 		&::before{
 			content: '';
 			background-color: var(--primary-black);

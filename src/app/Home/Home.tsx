@@ -67,22 +67,24 @@ export function Home(): JSX.Element {
 	return (
 		<>
 		{ 
-			!isCreatePostMenu ? 
 			<>
-			<div className={ styles.TWpostsBlock }>
-				<PostItem 
-					searchValue=''
-					posts={posts}
-					setPosts={setPosts}
-				/>
+			<div className={ styles.PostsBox }>
+				<div className={ styles.TWpostsBlock }>
+					<PostItem 
+						searchValue=''
+						posts={posts}
+						setPosts={setPosts}
+					/>
+				</div>
+				<div className={ styles.TWcreatePostBtn }>
+					<StandartButton
+						text={'Create Post'}
+						setValue={() => setIsCreatePostMenu(true)}
+					/>
+				</div> 
 			</div>
-			<div className={ styles.TWcreatePostBtn }>
-				<StandartButton
-					text={'Create Post'}
-					setValue={() => setIsCreatePostMenu(true)}
-				/>
-			</div> 
-			</> : <CreatePost
+			<div className={`${ styles.CreatePost } ${ isCreatePostMenu ? styles.visible : '' }`}>
+				<CreatePost
 					textAreaValue={textAreaValue}
 					userWallet={userWallet}
 					isModalEmojiActive={isModalEmojiActive}
@@ -91,7 +93,9 @@ export function Home(): JSX.Element {
 					setIsCreatePostMenu={setIsCreatePostMenu}
 					setIsModalEmojiActive={setIsModalEmojiActive}
 					setIsNotificationActive={setIsNotificationActive}
-				   />
+				/>
+			</div>
+			</>
 		}
 		{ isModalEmojiActive && (
 			<StandartModalMenu

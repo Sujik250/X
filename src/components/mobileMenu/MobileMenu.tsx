@@ -18,22 +18,22 @@ export function MobileMenu(): JSX.Element {
 						<TwitterHomeSvg />
 					</Link>
 				</li>
-				<li className={ styles.TWmobileListItem } data-active={path === `/search/${path.slice(8, path.length)}` ? 'true' : 'false'}>
+				<li className={ styles.TWmobileListItem } data-active={ path.includes('search') ? 'true' : 'false'}>
 					<Link href={`/search/txt=`}>
 						<TwitterSearchSvg />
 					</Link>
 				</li>
-				<li className={ styles.TWmobileListItem } data-active={path === '/profile' ? 'true' : 'false'}>
+				<li className={ styles.TWmobileListItem } data-active={ path.includes('/profile') ? 'true' : 'false'}>
 					<Link href={'/profile'}>
 						<TwitterProfileSvg />
 					</Link>
 				</li>
-				<li className={ styles.TWmobileListItem } data-active={path === '/chat' ? 'true' : 'false'}>
+				<li className={ styles.TWmobileListItem } data-active={ path.includes('/chat') ? 'true' : 'false'}>
 					<Link href={'/chat'}>
 						<TwitterChatSvg />
 					</Link>
 				</li>
-				<li className={ styles.TWmobileListItem } data-active={path === '/shop' ? 'true' : 'false'}>
+				<li className={ styles.TWmobileListItem } data-active={ path.includes('/shop') ? 'true' : 'false'}>
 					<Link href={'/shop'}>
 						<TwitterShopSvg />
 					</Link>
