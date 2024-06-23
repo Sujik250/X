@@ -16,11 +16,7 @@ export function ProductBuyMenu({ index, toggleIsModalActive, buyProduct, userWal
 	const [isVisibleBuyMenu, setisVisibleBuyMenu] = useState(false);
 	
 	useEffect(() => {
-		const timer = setTimeout(() => {
-			setisVisibleBuyMenu(!isVisibleBuyMenu);
-		  }, 0);
-	  
-		  return () => clearTimeout(timer);
+		setisVisibleBuyMenu(!isVisibleBuyMenu);
 	}, []);
 	
 	return (

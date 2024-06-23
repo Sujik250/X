@@ -5,11 +5,7 @@ export function PopupModalMenu({ setIsActive, children, translateY = 0, translat
 	const [isVisible, setIsVisible] = useState(false);
 	
 	useEffect(() => {
-		const timer = setTimeout(() => {
-		  setIsVisible(true);
-		}, 0);
-	
-		return () => clearTimeout(timer);
+		  setIsVisible(true)
 	  }, []);
 
 	  const closeModalMenu = () => {

@@ -1,7 +1,8 @@
 .MainSection{
 	position: fixed;
-	height: 90vh;
 	width: 100vw;
+	bottom: 68px;
+	top: 52px;
 	
 	transition: .06s;
 	transform: translateX(120%);
@@ -12,10 +13,9 @@
 
 .ChatHeader{
 	background-color: var(--primary-black);
-	width: 100%;
 	padding: 10px 0;
-	top: -1px;
 	display: flex;
+	
 	position: sticky;
 	border-bottom: 1px solid var(--primary-blue);
 
@@ -99,9 +99,9 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	position: fixed;
+	position: absolute;
+	bottom: 0;
 	width: 100%;
-	bottom: 68px;
 
 	& .SendButton{
 		position: absolute;

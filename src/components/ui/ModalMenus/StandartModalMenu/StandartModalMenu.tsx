@@ -5,11 +5,7 @@ export function StandartModalMenu({ setIsActive, children, translateY = 0, trans
 	const [isVisible, setIsVisible] = useState(false);
 	
 	useEffect(() => {
-		const timer = setTimeout(() => {
-		  setIsVisible(true);
-		}, 0);
-	
-		return () => clearTimeout(timer);
+		  setIsVisible(true)
 	  }, []);
 	
 	return (

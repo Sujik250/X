@@ -5,17 +5,23 @@
 	width: 100vw;
 	height: 100vh;
 	top: 10px;
+	z-index: 6;
+
+	opacity: 0;
+	transition: .2s;
+		&.visible {
+			opacity: 1;
+		 }
+
 	&::before{
 		content: "";
 		position: fixed;
 		width: 100vw;
 		height: 100vh;
-		z-index: 5;
 	}
 	
 	& .NotificationBlock{
 		position: absolute;
-		z-index: 5;
 		background-color: #d9534f;
 		width: 85%;
 		padding: 10px;

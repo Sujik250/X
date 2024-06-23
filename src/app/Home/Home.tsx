@@ -65,8 +65,6 @@ export function Home(): JSX.Element {
 	}
 
 	return (
-		<>
-		{ 
 			<>
 			<div className={ styles.PostsBox }>
 				<div className={ styles.TWpostsBlock }>
@@ -95,8 +93,7 @@ export function Home(): JSX.Element {
 					setIsNotificationActive={setIsNotificationActive}
 				/>
 			</div>
-			</>
-		}
+			
 		{ isModalEmojiActive && (
 			<StandartModalMenu
 				isActive={isModalEmojiActive} 

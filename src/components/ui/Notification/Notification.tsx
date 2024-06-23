@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Notification.module.scss'
 
 interface INotificationProps {
@@ -7,17 +7,22 @@ interface INotificationProps {
 }
 
 export function Notification({ NotificationText, setIsNotificationActive }: INotificationProps): JSX.Element {
-	useEffect(() => {
-		const timeout = setTimeout(() => {
-			setIsNotificationActive(false);
-		}, 2500);
+	const [isVisibleNotification, setIsVisibleNotification] = useState(false);
+	
+    useEffect(() => {
+        setIsVisibleNotification(true);
 
-		return () => clearTimeout(timeout);
-	}, [setIsNotificationActive]);
+        const timeout = setTimeout(() => {
+            setIsVisibleNotification(false);
+            setTimeout(() => setIsNotificationActive(false), 100);
+        }, 2500);
+
+        return () => clearTimeout(timeout);
+    }, [setIsNotificationActive]);
 	
 	return (
 		<div 
-			className={ styles.ShadowModal } 
+			className={`${ styles.ShadowModal } ${ isVisibleNotification ? styles.visible : '' }`}
 		>
 			<div 
 				className={ styles.NotificationBlock }
