@@ -20,7 +20,7 @@ export function TwitterSearchSvg(): JSX.Element {
 }
 
 
-export function TwitterProfileSvg(): JSX.Element {
+export function TwitterProfileFillSvg(): JSX.Element {
 	return (
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
 			<g className="TwitterIcon">
@@ -31,11 +31,33 @@ export function TwitterProfileSvg(): JSX.Element {
 }
 
 
-export function TwitterHomeSvg(): JSX.Element {
+export function TwitterProfileSvg(): JSX.Element {
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+			<g className="TwitterIcon">
+				<path d="M480-491.5q-56.44 0-96.2-39.76-39.76-39.76-39.76-96.2 0-56.44 39.76-96.2 39.76-39.76 96.2-39.76 56.44 0 96.2 39.76 39.76 39.76 39.76 96.2 0 56.44-39.76 96.2-39.76 39.76-96.2 39.76ZM187.27-198.19v-84.08q0-28.62 15.3-52.6 15.31-23.99 41.68-37.06 58.61-28.28 117.55-42.67Q420.73-429 480.01-429q59.27 0 118.25 14.39 58.97 14.38 117.54 42.66 26.35 13.08 41.64 37.07 15.29 23.99 15.29 52.61v84.08H187.27Zm55.96-55.96h473.54v-28.07q0-12.39-7.04-22.8-7.04-10.4-19.42-17.13-51.44-25.16-104.08-38.02-52.65-12.87-106.25-12.87-53.96 0-106.43 12.87-52.47 12.86-103.66 38.02-12.58 6.73-19.62 17.17-7.04 10.44-7.04 22.71v28.12ZM480-547.46q33 0 56.5-23.5t23.5-56.5q0-33-23.5-56.5t-56.5-23.5q-33 0-56.5 23.5t-23.5 56.5q0 33 23.5 56.5t56.5 23.5Zm0-80Zm0 373.31Z"/>
+			</g>
+		</svg>
+	)
+}
+
+
+export function TwitterHomeFillSvg(): JSX.Element {
 	return (
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
 			<g className="TwitterIcon">
 				<path d="M205.54-165.54v-412.5L480-785.38l274.46 207.64v412.2H554.04v-252.92H406.35v252.92H205.54Z"/>
+			</g>
+		</svg>
+	)
+}
+
+
+export function TwitterHomeSvg(): JSX.Element {
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+			<g className="TwitterIcon">
+				<path d="M243.23-203.23h130.62v-236.58h212.3v236.58h130.62v-355.96L480-737.54 243.23-559.26v356.03Zm-55.96 55.96v-440L480-807.69l292.73 220.65v439.77H530.19v-236.58H429.81v236.58H187.27ZM480-470.38Z"/>
 			</g>
 		</svg>
 	)
@@ -47,6 +69,17 @@ export function TwitterChatSvg(): JSX.Element {
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
 			<g className="TwitterIcon">
 				<path d="M260-420h280v-40H260v40Zm0-120h440v-40H260v40Zm0-120h440v-40H260v40ZM120-156.923v-618.462Q120-803 138.5-821.5 157-840 184.615-840h590.77Q803-840 821.5-821.5 840-803 840-775.385v430.77Q840-317 821.5-298.5 803-280 775.385-280H243.077L120-156.923ZM226-320h549.385q9.23 0 16.923-7.692Q800-335.385 800-344.615v-430.77q0-9.23-7.692-16.923Q784.615-800 775.385-800h-590.77q-9.23 0-16.923 7.692Q160-784.615 160-775.385v521.154L226-320Zm-66 0v-480 480Z"/>
+			</g>
+		</svg>
+	)
+}
+
+
+export function TwitterChatFillSvg(): JSX.Element {
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+			<g className='TwitterIcon'>
+				<path d="M108.08-130.58v-653.9q0-28.42 19.91-48.33 19.92-19.92 48.27-19.92h607.48q28.35 0 48.27 19.92 19.91 19.91 19.91 48.27v449.08q0 28.36-19.91 48.27-19.92 19.92-48.27 19.92H244.77L108.08-130.58Zm146.77-283.46h292.73V-470H254.85v55.96Zm0-118.38h450.3v-55.96h-450.3v55.96Zm0-118.39h450.3v-55.96h-450.3v55.96Z"/>
 			</g>
 		</svg>
 	)
@@ -195,6 +228,16 @@ export function TwitterShopSvg(): JSX.Element {
 	)
 }
 
+
+export function TwitterShopFillSvg(): JSX.Element {
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+			<g className='TwitterIcon'>
+				<path d="M289.42-105.77q-28.14 0-47.88-19.7-19.73-19.7-19.73-47.84 0-28.15 19.7-47.88 19.7-19.73 47.84-19.73 28.14 0 47.88 19.7 19.73 19.7 19.73 47.84 0 28.14-19.7 47.88-19.7 19.73-47.84 19.73Zm380.42 0q-28.14 0-47.88-19.7-19.73-19.7-19.73-47.84 0-28.15 19.7-47.88 19.7-19.73 47.84-19.73 28.15 0 47.88 19.7 19.73 19.7 19.73 47.84 0 28.14-19.7 47.88-19.7 19.73-47.84 19.73ZM215.18-785.15h543.55q24.34 0 36.83 20.87 12.48 20.88 1.28 42.28l-124.3 225.27q-9.04 16.81-25.1 26.31-16.07 9.5-34.83 9.5H325.62l-47.12 86.23q-3.08 4.61-.19 10 2.88 5.38 8.65 5.38h450.42v55.96H289.53q-39.07 0-58.67-33.07-19.59-33.07-1.4-66.27l57.08-101.63-143.83-303.26H68.08v-55.96h109.8l37.3 78.39Z"/>
+			</g>
+		</svg>
+	)
+}
 
 export function TwitterAddReactionSvg(): JSX.Element {
 	return (

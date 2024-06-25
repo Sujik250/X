@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import styles from './MobileMenu.module.scss'
-import { TwitterSearchSvg, TwitterChatSvg, TwitterHomeSvg, TwitterProfileSvg, TwitterShopSvg } 
+import { TwitterSearchSvg, TwitterChatSvg, TwitterHomeSvg, TwitterProfileSvg, TwitterShopSvg, TwitterChatFillSvg, TwitterHomeFillSvg, TwitterProfileFillSvg, TwitterShopFillSvg } 
 from '@/assets/svg/TwitterSvg'
 import { usePathname } from 'next/navigation'
 
@@ -15,7 +15,7 @@ export function MobileMenu(): JSX.Element {
 			<ul className={ styles.TWmobileList }>
 				<li className={ styles.TWmobileListItem } data-active={path === '/' ? 'true' : 'false'}>
 					<Link href={'/'}>
-						<TwitterHomeSvg />
+						{path === '/' ? <TwitterHomeFillSvg /> : <TwitterHomeSvg />}
 					</Link>
 				</li>
 				<li className={ styles.TWmobileListItem } data-active={ path.includes('search') ? 'true' : 'false'}>
@@ -25,17 +25,17 @@ export function MobileMenu(): JSX.Element {
 				</li>
 				<li className={ styles.TWmobileListItem } data-active={ path.includes('/profile') ? 'true' : 'false'}>
 					<Link href={'/profile'}>
-						<TwitterProfileSvg />
+						{ path.includes('/profile') ? <TwitterProfileFillSvg /> : <TwitterProfileSvg /> }
 					</Link>
 				</li>
 				<li className={ styles.TWmobileListItem } data-active={ path.includes('/chat') ? 'true' : 'false'}>
 					<Link href={'/chat'}>
-						<TwitterChatSvg />
+						{ path.includes('/chat') ? <TwitterChatFillSvg /> : <TwitterChatSvg /> }
 					</Link>
 				</li>
 				<li className={ styles.TWmobileListItem } data-active={ path.includes('/shop') ? 'true' : 'false'}>
 					<Link href={'/shop'}>
-						<TwitterShopSvg />
+						{ path.includes('/shop') ? <TwitterShopFillSvg /> : <TwitterShopSvg />}
 					</Link>
 				</li>
 			</ul>
