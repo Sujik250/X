@@ -1,7 +1,6 @@
-import { REACTIONPRODUCTS } from '@/data/ReactionCollection';
 import styles from './ExtraEmojiPackGenerator.module.scss'
-import { useState } from 'react';
 import { StandartButton } from '../ui/Buttons/StandartButton/StandartButton';
+import { SHOPPRODUCTS } from '@/data/ReactionCollection';
 
 interface IExtraEmojiPackGeneratorProps {
 	userWalletData: TUserWalletData;
@@ -18,9 +17,12 @@ export function ExtraEmojiPackGenerator({ setIsNotificationEmojiActive, isNotifi
 		const productIndex = copy.productsPurchased.findIndex(product => product.productID === packID)
 		
 		if (productIndex !== -1) {
-			copy.productsPurchased[productIndex].productItemSelectedID[packIncludeID] 
-			= !copy.productsPurchased[productIndex].productItemSelectedID[packIncludeID]
-			setUserWalletData(copy);
+			const product = copy.productsPurchased[productIndex];
+			if (product.productItemSelectedID) {
+				product.productItemSelectedID[packIncludeID] 
+				= !product.productItemSelectedID[packIncludeID]
+				setUserWalletData(copy);
+			}
 		}
 	}
 
@@ -28,9 +30,14 @@ export function ExtraEmojiPackGenerator({ setIsNotificationEmojiActive, isNotifi
 		const selectedIncludes: string[] = [];
 		
 		userWalletData.productsPurchased.forEach(product => {
-			if (product.productItemSelectedID.some(selected => selected)) {
-				const selectedProduct = REACTIONPRODUCTS.find(prod => prod.id === product.productID);
-				const selectedInclude = selectedProduct?.include.filter((_, index) => product.productItemSelectedID[index]);
+			if (product?.productItemSelectedID?.some(selected => selected)) {
+				const selectedProduct = SHOPPRODUCTS.find(prod => prod.id === product.productID);
+				const selectedInclude = selectedProduct?.include.filter((_, index) => {
+					if (product.productItemSelectedID !== undefined) {
+					  return product.productItemSelectedID[index];
+					}
+					return false;
+				});
 				if (selectedInclude) {
 					selectedIncludes.push(...selectedInclude);
 				}
@@ -47,9 +54,9 @@ export function ExtraEmojiPackGenerator({ setIsNotificationEmojiActive, isNotifi
 	return (
 		<>
 		<div className={ styles.ProductsBox }>
-			{ userWalletData.productsPurchased.map((item) => (
-				REACTIONPRODUCTS.filter((elemnt) => elemnt.id === item.productID).map(((product, index) => (
-					<div key={index} className={ styles.ProductBlock }>
+			{ userWalletData.productsPurchased.map(item => (
+				SHOPPRODUCTS.filter(elemnt => elemnt.id === item.productID  && elemnt.category === 'reaction').map((product => (
+					<div key={product.id} className={ styles.ProductBlock }>
 						<img src={product.preview} alt={product.name} />
 						<div className={ styles.ImportantInfo }>
 							<span className={ styles.ProductName }>{product.name}</span>
@@ -60,10 +67,10 @@ export function ExtraEmojiPackGenerator({ setIsNotificationEmojiActive, isNotifi
 									<span
 										key={includeIndex}
 										className={ styles.ProductIncludeItem }
-										data-active={item.productItemSelectedID[includeIndex]}
+										data-active={item.productItemSelectedID !== undefined && item.productItemSelectedID[includeIndex]}
 										onClick={() => changeSelectedItem(item.productID, includeIndex)}
 									>
-										{productEmoji}
+										{productEmoji as string}
 									</span>
 								))}
 							</div>

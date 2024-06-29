@@ -1,4 +1,3 @@
-import { REACTIONPRODUCTS } from '@/data/ReactionCollection'
 import styles from './ReactionCollection.module.scss'
 import { useState } from 'react';
 import { ProductBuyMenu } from './ProductBuyMenu/ProductBuyMenu';
@@ -10,13 +9,14 @@ export const userWalletData: TUserWalletData = {
 }
 
 interface IReactionCollectionProps {
+	products: TReactinData[]
 	searchValue: string;
 	userWallet: TUserWalletData
 	setUserWallet: React.Dispatch<React.SetStateAction<TUserWalletData>>
 }
 
-export function ReactionCollection({ userWallet, setUserWallet, searchValue }: IReactionCollectionProps): JSX.Element {
-	const [isModalActive, setIsModalActive] = useState<boolean[]>(Array(REACTIONPRODUCTS.length).fill(false));
+export function ReactionCollection({ products, userWallet, setUserWallet, searchValue }: IReactionCollectionProps): JSX.Element {
+	const [isModalActive, setIsModalActive] = useState<boolean[]>(Array(products.length).fill(false));
 	const [isNotificationActive, setIsNotificationActive] = useState(false);
 
 	const toggleIsModalActive = (index: number) => {
@@ -27,18 +27,19 @@ export function ReactionCollection({ userWallet, setUserWallet, searchValue }: I
 
 	const buyProduct = (index: number) => {
 		const userWalletDataLS = localStorage.getItem('userWalletData');
+		const currentProduct = products.filter(p => p.id === index)[0]
 
 		if (userWalletDataLS) {
-			if (userWallet.wallet >= Math.floor(REACTIONPRODUCTS[index].priceInfo.price * (1 - REACTIONPRODUCTS[index].priceInfo.discount / 100))) {
+			if (userWallet.wallet >= Math.floor(currentProduct.priceInfo.price * (1 - currentProduct.priceInfo.discount / 100))) {
 				setUserWallet((
 					{
                         ...userWallet,
-                        wallet: userWallet.wallet - Math.floor(REACTIONPRODUCTS[index].priceInfo.price * (1 - REACTIONPRODUCTS[index].priceInfo.discount / 100)),
+                        wallet: userWallet.wallet - Math.floor(currentProduct.priceInfo.price * (1 - currentProduct.priceInfo.discount / 100)),
                         productsPurchased: [
                             ...userWallet.productsPurchased,
                             {
-                                productID: REACTIONPRODUCTS[index].id,
-								productItemSelectedID: Array(REACTIONPRODUCTS[index].include.length).fill(false),
+                                productID: currentProduct.id,
+								productItemSelectedID: currentProduct.category === 'Reaction Pack' ? Array(currentProduct.include.length).fill(false) : [],
 							}
                         ]
                     }
@@ -57,10 +58,10 @@ export function ReactionCollection({ userWallet, setUserWallet, searchValue }: I
 	return (
 		<>
 		<div className={styles.ReactionCollection}>
-			{REACTIONPRODUCTS.reduce((acc: JSX.Element[], item, index) => {
+			{products.reduce((acc: JSX.Element[], item) => {
 				if (item.name.toLowerCase().includes(searchValue.toLowerCase())) {
 					acc.push(
-						<div key={item.id} className={styles.ProductBlock} onClick={() => toggleIsModalActive(index)}>
+						<div key={item.id} className={styles.ProductBlock} onClick={() => toggleIsModalActive(item.id)}>
 							<img src={item.preview} alt={item.name} />
 							<div className={styles.ProductInfo}>
 								<span className={styles.ProductName}>{item.name}</span>
@@ -88,9 +89,9 @@ export function ReactionCollection({ userWallet, setUserWallet, searchValue }: I
 										</>
 									)}
 							</div>
-							{isModalActive[index] && (
+							{isModalActive[item.id] && (
 								<ProductBuyMenu
-									index={index}
+									product={products.filter(p => p.id === item.id)[0]}
 									toggleIsModalActive={toggleIsModalActive}
 									buyProduct={buyProduct}
 									userWalletData={userWallet}

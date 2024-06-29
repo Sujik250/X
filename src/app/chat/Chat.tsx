@@ -76,8 +76,7 @@ export function Chat(): JSX.Element {
 			/>
 		</div>
 		{ isModalActive 
-		  ? <StandartModalMenu 
-		  		isActive={isModalActive} 
+		  ? <StandartModalMenu
 				setIsActive={setIsModalActive}
 				top={20}
 				left={0}

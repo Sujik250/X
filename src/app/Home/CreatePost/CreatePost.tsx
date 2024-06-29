@@ -1,6 +1,5 @@
 import { TwitterAddReactionSvg, TwitterTrashSvg } from '@/assets/svg/TwitterSvg';
 import styles from './CreatePost.module.scss'
-import { useState } from 'react';
 import { TextSection } from '@/components/ui/Fields/TextSection/TextSection';
 import { StandartButton } from '@/components/ui/Buttons/StandartButton/StandartButton';
 

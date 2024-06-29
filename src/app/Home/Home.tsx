@@ -96,7 +96,6 @@ export function Home(): JSX.Element {
 			
 		{ isModalEmojiActive && (
 			<StandartModalMenu
-				isActive={isModalEmojiActive} 
 				setIsActive={setIsModalEmojiActive}
 				top={15}
 				left={0}

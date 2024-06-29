@@ -5,5 +5,5 @@ type TUserWalletData = {
 
 type TProductsPurchased = {
 	productID: number,
-	productItemSelectedID: boolean[],
+	productItemSelectedID?: boolean[],
 }

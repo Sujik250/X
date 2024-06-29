@@ -2,7 +2,7 @@
 
 import styles from './ChatMenu.module.scss'
 import { useParams } from 'next/navigation'
-import { TwitterBackSvg, TwitterMessageDeliveredSvg, TwitterSendSvg } from '@/assets/svg/TwitterSvg'
+import { TwitterBackSvg, TwitterMessageDeliveredSvg, TwitterSendSvg, TwitterStickerSvg } from '@/assets/svg/TwitterSvg'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { chatsData } from '../Chat'
@@ -16,6 +16,7 @@ export function ChatMenu(): JSX.Element {
     });
 
 	const [isVisibleChatMenu, setisVisibleChatMenu] = useState(false);
+	const [isModalStickerActive, setisModalStickerActive] = useState(false);
 
 	const params = useParams()
 	const router = useRouter()
@@ -47,28 +48,30 @@ export function ChatMenu(): JSX.Element {
 		});
 	}, [params.UserName, setChats]);
 
-	const sendMessage = () => {
-		const date = new Date()
-		const newMessage = {
-			yourMessage: false,
-			message: textAreaValue, 
-			checked: false,
-			date: `${date.getHours()}:${date.getMinutes()}`,
-			delivered: true,
-		}
-		setChats(prevChats => {
-			const updatedChats = prevChats.map(chat => {
-				if (chat.name === params.UserName) {
-					return {
-						...chat,
-						messagesInfo: [...chat.messagesInfo, newMessage]
+	const sendMessage = (messageTxt: string) => {
+		if (messageTxt.replace(/\s/g, '').length > 0) {
+			const date = new Date()
+			const newMessage = {
+				yourMessage: false,
+				message: messageTxt, 
+				checked: false,
+				date: `${date.getHours()}:${date.getMinutes()}`,
+				delivered: true,
+			}
+			setChats(prevChats => {
+				const updatedChats = prevChats.map(chat => {
+					if (chat.name === params.UserName) {
+						return {
+							...chat,
+							messagesInfo: [...chat.messagesInfo, newMessage]
+						}
 					}
-				}
-				return chat
+					return chat
+				})
+		
+				return updatedChats
 			})
-	
-			return updatedChats
-		})
+		}
 	}
 
 	return (
@@ -101,13 +104,23 @@ export function ChatMenu(): JSX.Element {
 							key={index}
 						>
 							<div className={ styles.Message }>
-								<span>{elemnt.message}</span>
+								{
+									elemnt.message.slice(3, elemnt.message.length) === 'Sticker' 
+									? <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f600/512.gif" alt="" />
+									: <span>{elemnt.message}</span>
+								}
 								<span className={ styles.MessageInfo }>{elemnt.date}</span>
 							</div>
 						</div>
 					))}
 				</div>
 				<div className={ styles.CreateMessage }>
+					<div 
+						className={`${ styles.StickersMenu } ${ textAreaValue.length > 0 ? styles.visible : '' }`}
+						onClick={() => setisModalStickerActive(true)}
+					>
+						<TwitterStickerSvg />
+					</div> 
 					<TextArea
 						maxLength={500}
 						placeholder={'Message'}
@@ -115,15 +128,24 @@ export function ChatMenu(): JSX.Element {
 						setFieldValue={setTextAreaValue}
 					/>
 					<div 
-						className={`${ styles.SendButton } ${ textAreaValue.length > 0 ? styles.visible : '' }`}
+						className={`${ styles.SendButton } ${ textAreaValue.replace(/\s/g, '').length > 0 ? styles.visible : '' }`}
 						onClick={() => { 
-							sendMessage()
+							sendMessage(textAreaValue)
 							setTextAreaValue('')
 						}}
 					>
 						<TwitterSendSvg/>
 					</div> 
 				</div>
+				{ isModalStickerActive && (
+					<StandartModalMenu
+						setIsActive={setisModalStickerActive}
+						left={0}
+						top={20}
+					>
+						
+					</StandartModalMenu>
+				) }
 			</div>
 		)) }
 		</>

@@ -50,14 +50,15 @@
 }
 
 .Messages{
-	margin-top: 2%;
+	height: 75vh;
+	overflow-y: scroll;
 	
 	& .Message{
 		display: flex;
 		margin-bottom: 5px;
 		padding: 3px 10px;
 			&:last-child{
-				margin-bottom: 145px;
+				margin-bottom: 100px;
 			}
 		
 		& .Message{
@@ -68,6 +69,11 @@
 				border-radius: 15px;
 				padding: 5px 12px;
 				
+				& img{
+					width: 64px;
+					height: 64px;
+				}
+
 				& .MessageInfo{
 					vertical-align: sub;
 					margin-left: 10px;
@@ -103,9 +109,29 @@
 	bottom: 0;
 	width: 100%;
 
+	& .StickersMenu{
+		position: absolute;
+		left: 2%;
+		width: 26px;
+		height: 26px;
+
+		& svg{
+			fill: var(--primary-blue);
+			width: 26px;
+			height: 26px;
+		}
+	}
+
+	& textarea{
+		padding-left: 42px;
+	}
+	
 	& .SendButton{
 		position: absolute;
 		right: 2%;
+		width: 32px;
+		height: 32px;
+		
 		transition: .1s;
 		scale: 0.5;
 		opacity: 0;

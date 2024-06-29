@@ -57,7 +57,7 @@ export function PostItem({ searchValue = '', posts, setPosts }: IPostItemProps):
 			currentPosts.likeInfo.isLike ? currentPosts.likeInfo.likeCount++ : currentPosts.likeInfo.likeCount--
 			if (typeof window !== 'undefined') {
 				window.localStorage.setItem('postsData', JSON.stringify(copy));
-			  }
+			}
 		}
 		setPosts(copy)
     };
@@ -136,7 +136,6 @@ export function PostItem({ searchValue = '', posts, setPosts }: IPostItemProps):
 						</div>
 						{ isModalCommetsActive[index] && (
 							<PopupModalMenu
-								isActive={isModalCommetsActive[index]}
 								setIsActive={() => toggleIsModalCommentActive(index)}
 							>
 								<CommentsModalMenu
@@ -146,8 +145,7 @@ export function PostItem({ searchValue = '', posts, setPosts }: IPostItemProps):
 							</PopupModalMenu>
 						)}
 						{ isModalActive[index] && (
-							<StandartModalMenu 
-								isActive={isModalActive[index]} 
+							<StandartModalMenu
 								setIsActive={() => toggleIsModalActive(index)}
 								translateY={10}
 								translateX={-20}

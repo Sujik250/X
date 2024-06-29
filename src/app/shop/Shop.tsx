@@ -10,6 +10,7 @@ import { Notification } from '@/components/ui/Notification/Notification';
 import { Input } from '@/components/ui/Fields/Input/Input';
 import { StandartButton } from '@/components/ui/Buttons/StandartButton/StandartButton';
 import { ModernInput } from '@/components/ui/Fields/ModernInput/ModernInput';
+import { SHOPPRODUCTS } from '@/data/ReactionCollection';
 
 export function Shop(): JSX.Element {
 	const [userWallet, setUserWallet] = useLocalStorage({
@@ -66,6 +67,19 @@ export function Shop(): JSX.Element {
 						<span className={ styles.ShowAll }>Show All</span>
 					</div>
 					<ReactionCollection 
+						products={SHOPPRODUCTS.filter(p => p.category === 'reaction')}
+						searchValue={searchValue} 
+						userWallet={userWallet}
+						setUserWallet={setUserWallet}
+					/>
+				</div>
+				<div className={ styles.Collection }>
+					<div className={ styles.CollectionsInfo }>
+						<span>Sticker Packs</span>
+						<span className={ styles.ShowAll }>Show All</span>
+					</div>
+					<ReactionCollection 
+						products={SHOPPRODUCTS.filter(p => p.category === 'sticker')}
 						searchValue={searchValue} 
 						userWallet={userWallet}
 						setUserWallet={setUserWallet}
@@ -81,7 +95,6 @@ export function Shop(): JSX.Element {
 		</div>
 		{ isModalPromoCodeActive && (
 			<StandartModalMenu
-				isActive={isModalPromoCodeActive} 
 				setIsActive={setIsModalPromoCodeActive}
 				top={20}
 				left={0}
