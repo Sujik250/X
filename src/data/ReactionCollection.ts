@@ -8,7 +8,7 @@ export const SHOPPRODUCTS: TReactinData[] = [
 		include: ['💗', '💓', '💝', '💘'],
 		priceInfo: {
 			price: 8,
-			discount: 0,
+			discount: 35,
 		},
 		id: 0,
 	},
@@ -30,7 +30,7 @@ export const SHOPPRODUCTS: TReactinData[] = [
 		include: ['☠️', '🩸', '👻', '🎃'],
 		priceInfo: {
 			price: 8,
-			discount: 50,
+			discount: 0,
 		},
 		id: 2,
 	},
@@ -41,7 +41,7 @@ export const SHOPPRODUCTS: TReactinData[] = [
 		include: ['💏', '🐋', '🍷🗿', '🤫🧏‍♂️'],
 		priceInfo: {
 			price: 12,
-			discount: 0,
+			discount: 10,
 		},
 		id: 3,
 	},
@@ -58,7 +58,7 @@ export const SHOPPRODUCTS: TReactinData[] = [
 	},
 	{
 		preview: '/ScopoPhobiaPack.png',
-		name: 'ScopoPhobia Pack',
+		name: 'Base Pack',
 		category: 'sticker',
 		include: [
 			{
@@ -80,9 +80,37 @@ export const SHOPPRODUCTS: TReactinData[] = [
 		],
 		priceInfo: {
 			price: 8,
-			discount: 0,
+			discount: 20,
 		},
 		id: 5,
+	},
+	{
+		preview: '/ScopoPhobiaPack.png',
+		name: 'luxury Pack',
+		category: 'sticker',
+		include: [
+			{
+				sticker: 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f4b8/512.gif',
+				miniature: '💸'
+			},
+			{
+				sticker: 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f911/512.gif',
+				miniature: '🤑'
+			},
+			{
+				sticker: 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f377/512.gif',
+				miniature: '🍷'
+			},
+			{
+				sticker: 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f48e/512.gif',
+				miniature: '💎'
+			},
+		],
+		priceInfo: {
+			price: 8,
+			discount: 0,
+		},
+		id: 6,
 	},
 
 	// {

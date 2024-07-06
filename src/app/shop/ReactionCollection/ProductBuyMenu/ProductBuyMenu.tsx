@@ -44,7 +44,11 @@ export function ProductBuyMenu({ product, toggleIsModalActive, buyProduct, userW
 					<div className={ styles.ProductInclude }>
 						{ product.include.map((item, index) => (
 							product.category === 'sticker' && typeof item !== 'string'
-								? <img className={ styles.ProductIncludeItem } src={item.sticker} alt={item.miniature} />
+								? <img 
+									key={index}
+									className={ styles.ProductIncludeItem } 
+									src={item.sticker} 
+									alt={item.miniature} />
 								: <span key={index} className={ styles.ProductIncludeItem }>{item as string}</span>
 						)) }
 					</div>

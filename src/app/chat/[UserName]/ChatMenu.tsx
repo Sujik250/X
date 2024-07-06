@@ -2,17 +2,26 @@
 
 import styles from './ChatMenu.module.scss'
 import { useParams } from 'next/navigation'
-import { TwitterBackSvg, TwitterMessageDeliveredSvg, TwitterSendSvg, TwitterStickerSvg } from '@/assets/svg/TwitterSvg'
+import { TwitterBackSvg, TwitterSendSvg, TwitterStickerSvg } from '@/assets/svg/TwitterSvg'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { chatsData } from '../Chat'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 import { TextArea } from '@/components/ui/Fields/TextArea/TextArea'
+import { StandartModalMenu } from '@/components/ui/ModalMenus/StandartModalMenu/StandartModalMenu'
+import { userWalletData } from '@/app/shop/ReactionCollection/ReactionCollection'
+import { PurchasedStickerPackRender } from './PurchasedStickerPackRender/PurchasedStickerPackRender'
+import { SHOPPRODUCTS } from '@/data/ReactionCollection'
 
 export function ChatMenu(): JSX.Element {
 	const [chats, setChats] = useLocalStorage({
         key: 'chatData',
         defaultValue: chatsData,
+    });
+
+	const [userWallet, setUserWallet] = useLocalStorage({
+        key: 'userWalletData',
+        defaultValue: userWalletData,
     });
 
 	const [isVisibleChatMenu, setisVisibleChatMenu] = useState(false);
@@ -91,7 +100,9 @@ export function ChatMenu(): JSX.Element {
 					</div>
 					<img src='https://merriam-webster.com/assets/mw/images/article/art-wap-article-main/egg-3442-e1f6463624338504cd021bf23aef8441@1x.jpg' alt={item.name as string} />
 					<div className={ styles.UserInfo }>
-						<span className={ styles.UserName }>{params.UserName === 'Anonymous_0' ? 'XOwner' : params.UserName}</span>
+						<span className={ styles.UserName }>
+							{params.UserName === 'Anonymous_0' ? 'XOwner' : params.UserName}
+						</span>
 					</div>
 				</div>
 				<div className={ styles.Messages }>
@@ -105,8 +116,14 @@ export function ChatMenu(): JSX.Element {
 						>
 							<div className={ styles.Message }>
 								{
-									elemnt.message.slice(3, elemnt.message.length) === 'Sticker' 
-									? <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f600/512.gif" alt="" />
+									elemnt.message.slice(5, elemnt.message.length) === 'Sticker' 
+									? <img src={
+										(SHOPPRODUCTS[Number(elemnt.message.slice(2, 3))]
+										.include[Number((elemnt.message.slice(3, 4)))] as TStickerInclude)
+										.sticker
+									}
+										alt={elemnt.message.slice(0, 2)} 
+									/>
 									: <span>{elemnt.message}</span>
 								}
 								<span className={ styles.MessageInfo }>{elemnt.date}</span>
@@ -116,7 +133,10 @@ export function ChatMenu(): JSX.Element {
 				</div>
 				<div className={ styles.CreateMessage }>
 					<div 
-						className={`${ styles.StickersMenu } ${ textAreaValue.length > 0 ? styles.visible : '' }`}
+						className={`
+							${ styles.StickersMenu } 
+							${ textAreaValue.length > 0 && styles.visible
+						}`}
 						onClick={() => setisModalStickerActive(true)}
 					>
 						<TwitterStickerSvg />
@@ -128,7 +148,10 @@ export function ChatMenu(): JSX.Element {
 						setFieldValue={setTextAreaValue}
 					/>
 					<div 
-						className={`${ styles.SendButton } ${ textAreaValue.replace(/\s/g, '').length > 0 ? styles.visible : '' }`}
+						className={`
+								${ styles.SendButton } 
+								${ textAreaValue.replace(/\s/g, '').length > 0 && styles.visible
+							}`}
 						onClick={() => { 
 							sendMessage(textAreaValue)
 							setTextAreaValue('')
@@ -143,7 +166,11 @@ export function ChatMenu(): JSX.Element {
 						left={0}
 						top={20}
 					>
-						
+						<PurchasedStickerPackRender
+							userWalletData={userWallet}
+							sendMessage={sendMessage}
+							setIsModalStickerActive={() => setisModalStickerActive(!isModalStickerActive)}
+						/>
 					</StandartModalMenu>
 				) }
 			</div>

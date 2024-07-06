@@ -1,0 +1,41 @@
+.ProductsBox{
+	overflow-y: scroll;
+	height: 50vh;
+	
+	& .ProductBlock{
+		display: flex;
+		padding: 0px 10px 10px;
+		border-top: 1px solid var(--primary-gray);
+		padding-top: 10px;
+			&:first-child{
+				border: none;
+			}
+	
+		& img{
+			border-radius: 15px;
+			width: 25%;
+		}
+	
+		& .ImportantInfo{
+			display: flex;
+			flex-direction: column;
+			margin-left: 10px;
+			
+			& .ProductName{
+				font-size: 20px;
+				margin-bottom: 10px;
+			}
+	
+			& .ProductInclude{
+				color: var(--background-color);
+	
+				& .ProductIncludeItem{
+					border-right: 1px solid var(--background-color);
+					border-radius: 0;
+					padding: 3px;
+					width: 15%;
+				}
+			}
+		}
+	}
+}

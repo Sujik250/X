@@ -2,19 +2,18 @@ import { TwitterAddReactionSvg, TwitterTrashSvg } from '@/assets/svg/TwitterSvg'
 import styles from './CreatePost.module.scss'
 import { TextSection } from '@/components/ui/Fields/TextSection/TextSection';
 import { StandartButton } from '@/components/ui/Buttons/StandartButton/StandartButton';
+import { SHOPPRODUCTS } from '@/data/ReactionCollection';
 
 interface ICreatePostProps {
 	textAreaValue: string;
-	userWallet: TUserWalletData
 	isModalEmojiActive: boolean
 	createNewPost: () => void
 	setTextAreaValue: React.Dispatch<React.SetStateAction<string>>;
 	setIsCreatePostMenu: React.Dispatch<React.SetStateAction<boolean>>
 	setIsModalEmojiActive: React.Dispatch<React.SetStateAction<boolean>>
-	setIsNotificationActive: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export function CreatePost({ textAreaValue, userWallet, isModalEmojiActive, setTextAreaValue, setIsModalEmojiActive, setIsNotificationActive, createNewPost, setIsCreatePostMenu }: ICreatePostProps): JSX.Element {
+export function CreatePost({ textAreaValue, isModalEmojiActive, setTextAreaValue, setIsModalEmojiActive, createNewPost, setIsCreatePostMenu }: ICreatePostProps): JSX.Element {
 	return (
 		<div className={ styles.TWcreatePost }>
 			<div className={ styles.TWcreatePostHeader }>
@@ -44,11 +43,8 @@ export function CreatePost({ textAreaValue, userWallet, isModalEmojiActive, setT
 						</button>
 						<button 
 							className={ styles.AddExtraEmoji }
-							onClick={() => {
-								userWallet.productsPurchased.length !== 0
-									? setIsModalEmojiActive(!isModalEmojiActive)
-									: setIsNotificationActive(true)
-								}}
+							onClick={() => setIsModalEmojiActive(!isModalEmojiActive)}
+
 						>
 							<TwitterAddReactionSvg />
 						</button>

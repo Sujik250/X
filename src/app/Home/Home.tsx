@@ -34,7 +34,6 @@ export function Home(): JSX.Element {
 
 	const [isCreatePostMenu, setIsCreatePostMenu] = useState<boolean>(false);
 	const [isModalEmojiActive, setIsModalEmojiActive] = useState(false);
-	const [isNotificationActive, setIsNotificationActive] = useState(false);
 	const [isNotificationEmojiActive, setIsNotificationEmojiActive] = useState(false);
 	const [extraEmojis, setExtraEmojis] = useState<string[]>([]);
 	const [textAreaValue, setTextAreaValue] = useState<string>('');
@@ -84,13 +83,11 @@ export function Home(): JSX.Element {
 			<div className={`${ styles.CreatePost } ${ isCreatePostMenu ? styles.visible : '' }`}>
 				<CreatePost
 					textAreaValue={textAreaValue}
-					userWallet={userWallet}
 					isModalEmojiActive={isModalEmojiActive}
 					createNewPost={createNewPost}
 					setTextAreaValue={setTextAreaValue}
 					setIsCreatePostMenu={setIsCreatePostMenu}
 					setIsModalEmojiActive={setIsModalEmojiActive}
-					setIsNotificationActive={setIsNotificationActive}
 				/>
 			</div>
 			
@@ -109,12 +106,6 @@ export function Home(): JSX.Element {
 					isNotificationEmojiActive={isNotificationEmojiActive}
 				/>
 			</StandartModalMenu>
-		) }
-		{ isNotificationActive && (
-			<Notification 
-				NotificationText="You have no purchased Products"
-				setIsNotificationActive={setIsNotificationActive}	
-			/>
 		) }
 		{ isNotificationEmojiActive && (
 			<Notification 

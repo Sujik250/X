@@ -39,7 +39,7 @@ export function ExtraEmojiPackGenerator({ setIsNotificationEmojiActive, isNotifi
 					return false;
 				});
 				if (selectedInclude) {
-					selectedIncludes.push(...selectedInclude);
+					selectedIncludes.push(...selectedInclude as string[]);
 				}
 			}
 		})
