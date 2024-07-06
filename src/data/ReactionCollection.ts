@@ -57,7 +57,7 @@ export const SHOPPRODUCTS: TReactinData[] = [
 		id: 4,
 	},
 	{
-		preview: '/ScopoPhobiaPack.png',
+		preview: '/BasePack.png',
 		name: 'Base Pack',
 		category: 'sticker',
 		include: [
@@ -85,7 +85,7 @@ export const SHOPPRODUCTS: TReactinData[] = [
 		id: 5,
 	},
 	{
-		preview: '/ScopoPhobiaPack.png',
+		preview: '/LuxuryPack.png',
 		name: 'luxury Pack',
 		category: 'sticker',
 		include: [
